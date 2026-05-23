@@ -1,0 +1,70 @@
+# -----------------------------
+# OS / filesystem artifacts
+# -----------------------------
+.DS_Store
+Thumbs.db
+
+# -----------------------------
+# Android Studio / IntelliJ
+# -----------------------------
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# -----------------------------
+# Gradle / Kotlin build outputs
+# -----------------------------
+.gradle/
+.kotlin/
+.konan/
+build/
+**/build/
+captures/
+.cxx/
+externalNativeBuild/
+
+# -----------------------------
+# Local environment / secrets
+# -----------------------------
+local.properties
+*.keystore
+*.jks
+*.p12
+*.key
+
+# -----------------------------
+# Xcode / iOS local artifacts
+# -----------------------------
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+*.xcuserstate
+DerivedData/
+
+# -----------------------------
+# Logs / temp files
+# -----------------------------
+*.log
+*.tmp
+*.swp
+*.swo
+
+# -----------------------------
+# AI tooling artifacts
+# -----------------------------
+.cursor/
+.cursorrules
+agent-transcripts/
+terminals/
+.continue/
+.copilot/
+.codeium/
+.aider*
+.claude/
+.windsurf/
+.roo/
+.cody/
+.tabnine/
+.ollama/
+.lmstudio/
