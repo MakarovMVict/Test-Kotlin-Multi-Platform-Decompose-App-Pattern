@@ -1,6 +1,5 @@
 package com.example.testkmpdecomposeapp.feature.a.api
 
-import androidx.compose.runtime.Composable
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.decompose.router.stack.ChildStack
 import com.arkivanov.decompose.value.Value
@@ -10,9 +9,6 @@ interface FeatureAApi {
         componentContext: ComponentContext,
         onOutput: (Output) -> Unit
     ): FeatureAComponent
-
-    @Composable
-    fun Screen(component: FeatureAComponent)
 
     sealed interface Output {
         data class OpenFeatureCConfirm(val itemId: Int) : Output

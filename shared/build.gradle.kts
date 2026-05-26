@@ -32,13 +32,15 @@ kotlin {
             implementation(project(":feature:b:impl"))
             implementation(project(":feature:c:api"))
             implementation(project(":feature:c:impl"))
+            implementation(libs.koin.core)
+            implementation(libs.decompose)
+            implementation(libs.kotlinx.serialization.core)
+        }
+        androidMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
-            implementation(libs.koin.core)
-            implementation(libs.decompose)
             implementation(libs.decompose.compose)
-            implementation(libs.kotlinx.serialization.core)
         }
     }
 }

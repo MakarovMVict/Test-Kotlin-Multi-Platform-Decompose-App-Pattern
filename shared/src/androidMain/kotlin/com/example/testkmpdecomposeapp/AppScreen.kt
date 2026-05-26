@@ -21,10 +21,11 @@ import com.arkivanov.decompose.extensions.compose.jetbrains.stack.Children
 import com.arkivanov.essenty.lifecycle.LifecycleRegistry
 import com.example.testkmpdecomposeapp.core.common.MainTab
 import com.example.testkmpdecomposeapp.core.ui.AppTheme
-import com.example.testkmpdecomposeapp.feature.a.api.FeatureAApi
+import com.example.testkmpdecomposeapp.feature.a.impl.FeatureAScreen
 import com.example.testkmpdecomposeapp.feature.auth.api.AuthFeatureApi
-import com.example.testkmpdecomposeapp.feature.b.api.FeatureBApi
-import com.example.testkmpdecomposeapp.feature.c.api.FeatureCApi
+import com.example.testkmpdecomposeapp.feature.auth.impl.AuthFeatureScreen
+import com.example.testkmpdecomposeapp.feature.b.impl.FeatureBScreen
+import com.example.testkmpdecomposeapp.feature.c.impl.FeatureCScreen
 import kotlinx.coroutines.delay
 
 @Composable
@@ -37,10 +38,8 @@ fun AppScreen() {
         Children(stack = root.stack) { child ->
             when (val instance = child.instance) {
                 is AppRootComponent.Child.Splash -> SplashScreen(onFinished = instance.onFinished)
-                is AppRootComponent.Child.Auth -> {
-                    val authFeatureApi = rememberKoinInstance<AuthFeatureApi>()
-                    authFeatureApi.Screen(onOutput = instance.onOutput)
-                }
+                is AppRootComponent.Child.Auth ->
+                    AuthFeatureScreen(onOutput = instance.onOutput)
                 is AppRootComponent.Child.Main -> MainScreen(component = instance.component)
             }
         }
@@ -61,9 +60,6 @@ private fun SplashScreen(onFinished: () -> Unit) {
 
 @Composable
 private fun MainScreen(component: MainComponent) {
-    val featureAApi = rememberKoinInstance<FeatureAApi>()
-    val featureBApi = rememberKoinInstance<FeatureBApi>()
-    val featureCApi = rememberKoinInstance<FeatureCApi>()
     val selectedTab = component.selectedTab
     val stack by component.stack.subscribeAsState()
 
@@ -99,15 +95,10 @@ private fun MainScreen(component: MainComponent) {
             verticalArrangement = Arrangement.Center
         ) {
             when (val child = stack.active.instance) {
-                is MainComponent.Child.FeatureA -> featureAApi.Screen(component = child.component)
-                is MainComponent.Child.FeatureB -> featureBApi.Screen(component = child.component)
-                is MainComponent.Child.FeatureC -> featureCApi.Screen(component = child.component)
+                is MainComponent.Child.FeatureA -> FeatureAScreen(component = child.component)
+                is MainComponent.Child.FeatureB -> FeatureBScreen(component = child.component)
+                is MainComponent.Child.FeatureC -> FeatureCScreen(component = child.component)
             }
         }
     }
-}
-
-@Composable
-private inline fun <reified T : Any> rememberKoinInstance(): T {
-    return remember { getKoinInstance<T>() }
 }
