@@ -4,16 +4,16 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-internal data class FeatureAListUiState(
+data class FeatureAListUiState(
     val title: String = "Feature A - List",
     val items: List<Int> = listOf(1, 2)
 )
 
-internal sealed interface FeatureAListIntent {
+sealed interface FeatureAListIntent {
     data class OpenItem(val itemId: Int) : FeatureAListIntent
 }
 
-internal class FeatureAListViewModel(
+class FeatureAListViewModel(
     private val onOpen: (Int) -> Unit
 ) {
     private val _uiState = MutableStateFlow(FeatureAListUiState())
@@ -26,16 +26,16 @@ internal class FeatureAListViewModel(
     }
 }
 
-internal data class FeatureADetailsUiState(
+data class FeatureADetailsUiState(
     val title: String
 )
 
-internal sealed interface FeatureADetailsIntent {
+sealed interface FeatureADetailsIntent {
     data object BackClicked : FeatureADetailsIntent
     data object OpenFeatureCConfirmClicked : FeatureADetailsIntent
 }
 
-internal class FeatureADetailsViewModel(
+class FeatureADetailsViewModel(
     itemId: Int,
     private val onBack: () -> Unit,
     private val onOpenFeatureCConfirm: (Int) -> Unit

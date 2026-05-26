@@ -7,16 +7,16 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-internal data class FeatureCListUiState(
+data class FeatureCListUiState(
     val title: String = "Feature C - List",
     val items: List<Int> = emptyList()
 )
 
-internal sealed interface FeatureCListIntent {
+sealed interface FeatureCListIntent {
     data class OpenItem(val itemId: Int) : FeatureCListIntent
 }
 
-internal class FeatureCListViewModel(
+class FeatureCListViewModel(
     getItemsUseCase: GetFeatureCItemsUseCase,
     private val onOpen: (Int) -> Unit
 ) {
@@ -32,16 +32,16 @@ internal class FeatureCListViewModel(
     }
 }
 
-internal data class FeatureCDetailsUiState(
+data class FeatureCDetailsUiState(
     val title: String
 )
 
-internal sealed interface FeatureCDetailsIntent {
+sealed interface FeatureCDetailsIntent {
     data object OpenConfirmClicked : FeatureCDetailsIntent
     data object BackClicked : FeatureCDetailsIntent
 }
 
-internal class FeatureCDetailsViewModel(
+class FeatureCDetailsViewModel(
     itemId: Int,
     getItemDetailsUseCase: GetFeatureCItemDetailsUseCase,
     private val onBack: () -> Unit,
@@ -62,17 +62,17 @@ internal class FeatureCDetailsViewModel(
     }
 }
 
-internal data class FeatureCConfirmUiState(
+data class FeatureCConfirmUiState(
     val title: String,
     val canComplete: Boolean
 )
 
-internal sealed interface FeatureCConfirmIntent {
+sealed interface FeatureCConfirmIntent {
     data object DoneClicked : FeatureCConfirmIntent
     data object BackClicked : FeatureCConfirmIntent
 }
 
-internal class FeatureCConfirmViewModel(
+class FeatureCConfirmViewModel(
     itemId: Int,
     getItemDetailsUseCase: GetFeatureCItemDetailsUseCase,
     private val confirmItemUseCase: ConfirmFeatureCItemUseCase,

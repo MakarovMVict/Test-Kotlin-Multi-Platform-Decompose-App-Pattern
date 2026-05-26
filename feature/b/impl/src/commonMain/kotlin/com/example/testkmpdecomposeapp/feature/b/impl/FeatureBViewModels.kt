@@ -4,16 +4,16 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-internal data class FeatureBListUiState(
+data class FeatureBListUiState(
     val title: String = "Feature B - List",
     val items: List<Int> = listOf(1, 2)
 )
 
-internal sealed interface FeatureBListIntent {
+sealed interface FeatureBListIntent {
     data class OpenItem(val itemId: Int) : FeatureBListIntent
 }
 
-internal class FeatureBListViewModel(
+class FeatureBListViewModel(
     private val onOpen: (Int) -> Unit
 ) {
     private val _uiState = MutableStateFlow(FeatureBListUiState())
@@ -26,15 +26,15 @@ internal class FeatureBListViewModel(
     }
 }
 
-internal data class FeatureBDetailsUiState(
+data class FeatureBDetailsUiState(
     val title: String
 )
 
-internal sealed interface FeatureBDetailsIntent {
+sealed interface FeatureBDetailsIntent {
     data object BackClicked : FeatureBDetailsIntent
 }
 
-internal class FeatureBDetailsViewModel(
+class FeatureBDetailsViewModel(
     itemId: Int,
     private val onBack: () -> Unit
 ) {

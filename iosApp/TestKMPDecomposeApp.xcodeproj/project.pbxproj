@@ -12,6 +12,13 @@
 		A10000000000000000000003 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000003 /* SplashView.swift */; };
 		A10000000000000000000004 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000004 /* AuthView.swift */; };
 		A10000000000000000000005 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000005 /* MainTabView.swift */; };
+		A10000000000000000000006 /* FeatureAListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000006 /* FeatureAListView.swift */; };
+		A10000000000000000000007 /* FeatureADetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000007 /* FeatureADetailsView.swift */; };
+		A10000000000000000000008 /* FeatureBListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000008 /* FeatureBListView.swift */; };
+		A10000000000000000000009 /* FeatureBDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000009 /* FeatureBDetailsView.swift */; };
+		A1000000000000000000000A /* FeatureCListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000A /* FeatureCListView.swift */; };
+		A1000000000000000000000B /* FeatureCDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000B /* FeatureCDetailsView.swift */; };
+		A1000000000000000000000C /* FeatureCConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000C /* FeatureCConfirmView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +28,13 @@
 		B10000000000000000000003 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		B10000000000000000000004 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		B10000000000000000000005 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		B10000000000000000000006 /* FeatureAListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureAListView.swift; sourceTree = "<group>"; };
+		B10000000000000000000007 /* FeatureADetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureADetailsView.swift; sourceTree = "<group>"; };
+		B10000000000000000000008 /* FeatureBListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureBListView.swift; sourceTree = "<group>"; };
+		B10000000000000000000009 /* FeatureBDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureBDetailsView.swift; sourceTree = "<group>"; };
+		B1000000000000000000000A /* FeatureCListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCListView.swift; sourceTree = "<group>"; };
+		B1000000000000000000000B /* FeatureCDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCDetailsView.swift; sourceTree = "<group>"; };
+		B1000000000000000000000C /* FeatureCConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCConfirmView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +85,13 @@
 				B10000000000000000000003 /* SplashView.swift */,
 				B10000000000000000000004 /* AuthView.swift */,
 				B10000000000000000000005 /* MainTabView.swift */,
+				B10000000000000000000006 /* FeatureAListView.swift */,
+				B10000000000000000000007 /* FeatureADetailsView.swift */,
+				B10000000000000000000008 /* FeatureBListView.swift */,
+				B10000000000000000000009 /* FeatureBDetailsView.swift */,
+				B1000000000000000000000A /* FeatureCListView.swift */,
+				B1000000000000000000000B /* FeatureCDetailsView.swift */,
+				B1000000000000000000000C /* FeatureCConfirmView.swift */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -157,6 +178,13 @@
 				A10000000000000000000003 /* SplashView.swift in Sources */,
 				A10000000000000000000004 /* AuthView.swift in Sources */,
 				A10000000000000000000005 /* MainTabView.swift in Sources */,
+				A10000000000000000000006 /* FeatureAListView.swift in Sources */,
+				A10000000000000000000007 /* FeatureADetailsView.swift in Sources */,
+				A10000000000000000000008 /* FeatureBListView.swift in Sources */,
+				A10000000000000000000009 /* FeatureBDetailsView.swift in Sources */,
+				A1000000000000000000000A /* FeatureCListView.swift in Sources */,
+				A1000000000000000000000B /* FeatureCDetailsView.swift in Sources */,
+				A1000000000000000000000C /* FeatureCConfirmView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

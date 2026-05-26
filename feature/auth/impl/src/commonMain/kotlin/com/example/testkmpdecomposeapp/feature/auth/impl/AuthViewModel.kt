@@ -5,16 +5,16 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-internal data class AuthUiState(
+data class AuthUiState(
     val title: String = "Экран авторизации",
     val loginButtonTitle: String = "Войти"
 )
 
-internal sealed interface AuthIntent {
+sealed interface AuthIntent {
     data object LoginClicked : AuthIntent
 }
 
-internal class AuthViewModel(
+class AuthViewModel(
     private val onAuthorized: (AuthFeatureApi.Output) -> Unit
 ) {
     private val _uiState = MutableStateFlow(AuthUiState())

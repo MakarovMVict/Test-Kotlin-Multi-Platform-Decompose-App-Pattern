@@ -1,14 +1,7 @@
 import SwiftUI
-import shared
 
 struct MainTabView: View {
-    let state: IosAppState
-    let onSelectTab: (String) -> Void
-    let onOpenItem: (Int) -> Void
-    let onBack: () -> Void
-    let onOpenConfirm: () -> Void
-    let onDoneConfirm: () -> Void
-    let onOpenFeatureCConfirmFromFeatureA: () -> Void
+    @ObservedObject var store: AppStore
 
     var body: some View {
         VStack(spacing: 0) {
@@ -28,7 +21,7 @@ struct MainTabView: View {
 
     @ViewBuilder
     private var featureContent: some View {
-        switch state.selectedTab {
+        switch store.state.selectedTab {
         case "a":
             featureAContent
         case "b":
@@ -40,57 +33,41 @@ struct MainTabView: View {
 
     @ViewBuilder
     private var featureAContent: some View {
-        VStack(spacing: 16) {
-            if state.activeScreen == "list" {
-                Text("Feature A - List")
-                Button("Open A item 1") { onOpenItem(1) }
-                Button("Open A item 2") { onOpenItem(2) }
-            } else {
-                Text("Feature A - Details #\(state.activeItemId)")
-                Button("Open Feature C confirm") {
-                    onOpenFeatureCConfirmFromFeatureA()
-                }
-                Button("Back") { onBack() }
-            }
+        if let viewModel = store.featureAListViewModel() {
+            FeatureAListView(viewModel: viewModel)
+        } else if let viewModel = store.featureADetailsViewModel() {
+            FeatureADetailsView(viewModel: viewModel)
+        } else {
+            Text("Feature A state unavailable")
         }
     }
 
     @ViewBuilder
     private var featureBContent: some View {
-        VStack(spacing: 16) {
-            if state.activeScreen == "list" {
-                Text("Feature B - List")
-                Button("Open B item 1") { onOpenItem(1) }
-                Button("Open B item 2") { onOpenItem(2) }
-            } else {
-                Text("Feature B - Details #\(state.activeItemId)")
-                Button("Back") { onBack() }
-            }
+        if let viewModel = store.featureBListViewModel() {
+            FeatureBListView(viewModel: viewModel)
+        } else if let viewModel = store.featureBDetailsViewModel() {
+            FeatureBDetailsView(viewModel: viewModel)
+        } else {
+            Text("Feature B state unavailable")
         }
     }
 
     @ViewBuilder
     private var featureCContent: some View {
-        VStack(spacing: 16) {
-            switch state.activeScreen {
-            case "list":
-                Text("Feature C - List")
-                Button("Open item 1") { onOpenItem(1) }
-                Button("Open item 2") { onOpenItem(2) }
-            case "details":
-                Text("Feature C - Item \(state.activeItemId)")
-                Button("Go to confirm") { onOpenConfirm() }
-                Button("Back") { onBack() }
-            default:
-                Text("Feature C - Confirm #\(state.activeItemId)")
-                Button("Done") { onDoneConfirm() }
-                Button("Back") { onBack() }
-            }
+        if let viewModel = store.featureCListViewModel() {
+            FeatureCListView(viewModel: viewModel)
+        } else if let viewModel = store.featureCDetailsViewModel() {
+            FeatureCDetailsView(viewModel: viewModel)
+        } else if let viewModel = store.featureCConfirmViewModel() {
+            FeatureCConfirmView(viewModel: viewModel)
+        } else {
+            Text("Feature C state unavailable")
         }
     }
 
     private func tabButton(title: String, tab: String) -> some View {
-        Button(action: { onSelectTab(tab) }) {
+        Button(action: { store.selectTab(tab) }) {
             Text(title)
                 .frame(maxWidth: .infinity)
         }

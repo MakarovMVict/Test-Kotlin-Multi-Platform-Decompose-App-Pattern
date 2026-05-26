@@ -27,8 +27,8 @@ final class AppStore: ObservableObject {
         bridge.onSplashFinished()
     }
 
-    func onAuthLogin() {
-        bridge.onAuthLogin()
+    func authViewModel() -> IosAuthScreenViewModel? {
+        bridge.authViewModel()
     }
 
     func selectTab(_ tab: String) {
@@ -44,24 +44,32 @@ final class AppStore: ObservableObject {
         }
     }
 
-    func openItem(_ itemId: Int) {
-        bridge.openItem(itemId: Int32(itemId))
+    func featureAListViewModel() -> IosFeatureAListScreenViewModel? {
+        bridge.featureAListViewModel()
     }
 
-    func onBack() {
-        bridge.onBack()
+    func featureADetailsViewModel() -> IosFeatureADetailsScreenViewModel? {
+        bridge.featureADetailsViewModel()
     }
 
-    func openConfirm() {
-        bridge.openConfirm()
+    func featureBListViewModel() -> IosFeatureBListScreenViewModel? {
+        bridge.featureBListViewModel()
     }
 
-    func doneConfirm() {
-        bridge.doneConfirm()
+    func featureBDetailsViewModel() -> IosFeatureBDetailsScreenViewModel? {
+        bridge.featureBDetailsViewModel()
     }
 
-    func openFeatureCConfirmFromFeatureA() {
-        bridge.openFeatureCConfirmFromFeatureA()
+    func featureCListViewModel() -> IosFeatureCListScreenViewModel? {
+        bridge.featureCListViewModel()
+    }
+
+    func featureCDetailsViewModel() -> IosFeatureCDetailsScreenViewModel? {
+        bridge.featureCDetailsViewModel()
+    }
+
+    func featureCConfirmViewModel() -> IosFeatureCConfirmScreenViewModel? {
+        bridge.featureCConfirmViewModel()
     }
 }
 
@@ -85,17 +93,13 @@ struct RootView: View {
         case "splash":
             SplashView(onFinished: store.onSplashFinished)
         case "auth":
-            AuthView(onLoginSuccess: store.onAuthLogin)
+            if let viewModel = store.authViewModel() {
+                AuthView(viewModel: viewModel)
+            } else {
+                Text("Auth view model unavailable")
+            }
         case "main":
-            MainTabView(
-                state: store.state,
-                onSelectTab: store.selectTab,
-                onOpenItem: store.openItem,
-                onBack: store.onBack,
-                onOpenConfirm: store.openConfirm,
-                onDoneConfirm: store.doneConfirm,
-                onOpenFeatureCConfirmFromFeatureA: store.openFeatureCConfirmFromFeatureA
-            )
+            MainTabView(store: store)
         default:
             Text("Unknown state")
         }
