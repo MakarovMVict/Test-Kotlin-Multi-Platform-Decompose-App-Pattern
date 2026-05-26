@@ -19,6 +19,14 @@
 		A1000000000000000000000A /* FeatureCListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000A /* FeatureCListView.swift */; };
 		A1000000000000000000000B /* FeatureCDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000B /* FeatureCDetailsView.swift */; };
 		A1000000000000000000000C /* FeatureCConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000C /* FeatureCConfirmView.swift */; };
+		A1000000000000000000000D /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000D /* AuthViewModel.swift */; };
+		A1000000000000000000000E /* FeatureAListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000E /* FeatureAListViewModel.swift */; };
+		A1000000000000000000000F /* FeatureADetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000F /* FeatureADetailsViewModel.swift */; };
+		A10000000000000000000010 /* FeatureBListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000010 /* FeatureBListViewModel.swift */; };
+		A10000000000000000000011 /* FeatureBDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000011 /* FeatureBDetailsViewModel.swift */; };
+		A10000000000000000000012 /* FeatureCListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000012 /* FeatureCListViewModel.swift */; };
+		A10000000000000000000013 /* FeatureCDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000013 /* FeatureCDetailsViewModel.swift */; };
+		A10000000000000000000014 /* FeatureCConfirmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000014 /* FeatureCConfirmViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +43,14 @@
 		B1000000000000000000000A /* FeatureCListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCListView.swift; sourceTree = "<group>"; };
 		B1000000000000000000000B /* FeatureCDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCDetailsView.swift; sourceTree = "<group>"; };
 		B1000000000000000000000C /* FeatureCConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCConfirmView.swift; sourceTree = "<group>"; };
+		B1000000000000000000000D /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		B1000000000000000000000E /* FeatureAListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureAListViewModel.swift; sourceTree = "<group>"; };
+		B1000000000000000000000F /* FeatureADetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureADetailsViewModel.swift; sourceTree = "<group>"; };
+		B10000000000000000000010 /* FeatureBListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureBListViewModel.swift; sourceTree = "<group>"; };
+		B10000000000000000000011 /* FeatureBDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureBDetailsViewModel.swift; sourceTree = "<group>"; };
+		B10000000000000000000012 /* FeatureCListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCListViewModel.swift; sourceTree = "<group>"; };
+		B10000000000000000000013 /* FeatureCDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCDetailsViewModel.swift; sourceTree = "<group>"; };
+		B10000000000000000000014 /* FeatureCConfirmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCConfirmViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,17 +99,129 @@
 				B10000000000000000000001 /* TestKMPDecomposeApp.swift */,
 				B10000000000000000000002 /* RootView.swift */,
 				B10000000000000000000003 /* SplashView.swift */,
-				B10000000000000000000004 /* AuthView.swift */,
 				B10000000000000000000005 /* MainTabView.swift */,
-				B10000000000000000000006 /* FeatureAListView.swift */,
-				B10000000000000000000007 /* FeatureADetailsView.swift */,
-				B10000000000000000000008 /* FeatureBListView.swift */,
-				B10000000000000000000009 /* FeatureBDetailsView.swift */,
-				B1000000000000000000000A /* FeatureCListView.swift */,
-				B1000000000000000000000B /* FeatureCDetailsView.swift */,
-				B1000000000000000000000C /* FeatureCConfirmView.swift */,
+				E10000000000000000000003 /* features */,
 			);
 			path = iosApp;
+			sourceTree = "<group>";
+		};
+		E10000000000000000000003 /* features */ = {
+			isa = PBXGroup;
+			children = (
+				E10000000000000000000004 /* auth */,
+				E10000000000000000000006 /* featureA */,
+				E10000000000000000000009 /* featureB */,
+				E1000000000000000000000C /* featureC */,
+			);
+			path = features;
+			sourceTree = "<group>";
+		};
+		E10000000000000000000004 /* auth */ = {
+			isa = PBXGroup;
+			children = (
+				E10000000000000000000005 /* screen */,
+			);
+			path = auth;
+			sourceTree = "<group>";
+		};
+		E10000000000000000000005 /* screen */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000004 /* AuthView.swift */,
+				B1000000000000000000000D /* AuthViewModel.swift */,
+			);
+			path = screen;
+			sourceTree = "<group>";
+		};
+		E10000000000000000000006 /* featureA */ = {
+			isa = PBXGroup;
+			children = (
+				E10000000000000000000007 /* list */,
+				E10000000000000000000008 /* details */,
+			);
+			path = featureA;
+			sourceTree = "<group>";
+		};
+		E10000000000000000000007 /* list */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000006 /* FeatureAListView.swift */,
+				B1000000000000000000000E /* FeatureAListViewModel.swift */,
+			);
+			path = list;
+			sourceTree = "<group>";
+		};
+		E10000000000000000000008 /* details */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000007 /* FeatureADetailsView.swift */,
+				B1000000000000000000000F /* FeatureADetailsViewModel.swift */,
+			);
+			path = details;
+			sourceTree = "<group>";
+		};
+		E10000000000000000000009 /* featureB */ = {
+			isa = PBXGroup;
+			children = (
+				E1000000000000000000000A /* list */,
+				E1000000000000000000000B /* details */,
+			);
+			path = featureB;
+			sourceTree = "<group>";
+		};
+		E1000000000000000000000A /* list */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000008 /* FeatureBListView.swift */,
+				B10000000000000000000010 /* FeatureBListViewModel.swift */,
+			);
+			path = list;
+			sourceTree = "<group>";
+		};
+		E1000000000000000000000B /* details */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000009 /* FeatureBDetailsView.swift */,
+				B10000000000000000000011 /* FeatureBDetailsViewModel.swift */,
+			);
+			path = details;
+			sourceTree = "<group>";
+		};
+		E1000000000000000000000C /* featureC */ = {
+			isa = PBXGroup;
+			children = (
+				E1000000000000000000000D /* list */,
+				E1000000000000000000000E /* details */,
+				E1000000000000000000000F /* confirm */,
+			);
+			path = featureC;
+			sourceTree = "<group>";
+		};
+		E1000000000000000000000D /* list */ = {
+			isa = PBXGroup;
+			children = (
+				B1000000000000000000000A /* FeatureCListView.swift */,
+				B10000000000000000000012 /* FeatureCListViewModel.swift */,
+			);
+			path = list;
+			sourceTree = "<group>";
+		};
+		E1000000000000000000000E /* details */ = {
+			isa = PBXGroup;
+			children = (
+				B1000000000000000000000B /* FeatureCDetailsView.swift */,
+				B10000000000000000000013 /* FeatureCDetailsViewModel.swift */,
+			);
+			path = details;
+			sourceTree = "<group>";
+		};
+		E1000000000000000000000F /* confirm */ = {
+			isa = PBXGroup;
+			children = (
+				B1000000000000000000000C /* FeatureCConfirmView.swift */,
+				B10000000000000000000014 /* FeatureCConfirmViewModel.swift */,
+			);
+			path = confirm;
 			sourceTree = "<group>";
 		};
 		E10000000000000000000002 /* Products */ = {
@@ -177,14 +305,22 @@
 				A10000000000000000000002 /* RootView.swift in Sources */,
 				A10000000000000000000003 /* SplashView.swift in Sources */,
 				A10000000000000000000004 /* AuthView.swift in Sources */,
+				A1000000000000000000000D /* AuthViewModel.swift in Sources */,
 				A10000000000000000000005 /* MainTabView.swift in Sources */,
 				A10000000000000000000006 /* FeatureAListView.swift in Sources */,
+				A1000000000000000000000E /* FeatureAListViewModel.swift in Sources */,
 				A10000000000000000000007 /* FeatureADetailsView.swift in Sources */,
+				A1000000000000000000000F /* FeatureADetailsViewModel.swift in Sources */,
 				A10000000000000000000008 /* FeatureBListView.swift in Sources */,
+				A10000000000000000000010 /* FeatureBListViewModel.swift in Sources */,
 				A10000000000000000000009 /* FeatureBDetailsView.swift in Sources */,
+				A10000000000000000000011 /* FeatureBDetailsViewModel.swift in Sources */,
 				A1000000000000000000000A /* FeatureCListView.swift in Sources */,
+				A10000000000000000000012 /* FeatureCListViewModel.swift in Sources */,
 				A1000000000000000000000B /* FeatureCDetailsView.swift in Sources */,
+				A10000000000000000000013 /* FeatureCDetailsViewModel.swift in Sources */,
 				A1000000000000000000000C /* FeatureCConfirmView.swift in Sources */,
+				A10000000000000000000014 /* FeatureCConfirmViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,9 +6,8 @@ struct AuthView: View {
 
     var body: some View {
         VStack(spacing: 16) {
-            let state: AuthUiState = viewModel.uiState.value as! AuthUiState
-            Text(state.title)
-            Button(state.loginButtonTitle) {
+            Text(viewModel.state.title)
+            Button(viewModel.state.loginButtonTitle) {
                 viewModel.onLoginClicked()
             }
         }

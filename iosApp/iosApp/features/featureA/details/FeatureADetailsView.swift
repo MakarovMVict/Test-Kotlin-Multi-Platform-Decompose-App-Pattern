@@ -6,8 +6,7 @@ struct FeatureADetailsView: View {
 
     var body: some View {
         VStack(spacing: 16) {
-            let state: FeatureADetailsUiState = viewModel.uiState.value as! FeatureADetailsUiState
-            Text(state.title)
+            Text(viewModel.state.title)
             Button("Open Feature C confirm") {
                 viewModel.onOpenFeatureCConfirmClicked()
             }

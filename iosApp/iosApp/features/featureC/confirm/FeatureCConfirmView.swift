@@ -6,12 +6,11 @@ struct FeatureCConfirmView: View {
 
     var body: some View {
         VStack(spacing: 16) {
-            let state: FeatureCConfirmUiState = viewModel.uiState.value as! FeatureCConfirmUiState
-            Text(state.title)
+            Text(viewModel.state.title)
             Button("Done") {
                 viewModel.onDoneClicked()
             }
-            .disabled(!state.canComplete)
+            .disabled(!viewModel.state.canComplete)
             Button("Back") {
                 viewModel.onBackClicked()
             }

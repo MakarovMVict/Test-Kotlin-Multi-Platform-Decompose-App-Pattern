@@ -6,8 +6,7 @@ struct FeatureBDetailsView: View {
 
     var body: some View {
         VStack(spacing: 16) {
-            let state: FeatureBDetailsUiState = viewModel.uiState.value as! FeatureBDetailsUiState
-            Text(state.title)
+            Text(viewModel.state.title)
             Button("Back") {
                 viewModel.onBackClicked()
             }
