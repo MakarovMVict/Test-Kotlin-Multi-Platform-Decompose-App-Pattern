@@ -1,9 +1,11 @@
-package com.example.testkmpdecomposeapp.feature.b.impl
+package com.example.testkmpdecomposeapp.android.features.b
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.Children
 import com.example.testkmpdecomposeapp.feature.b.api.FeatureBComponent
+import com.example.testkmpdecomposeapp.feature.b.impl.FeatureBDetailsViewModel
+import com.example.testkmpdecomposeapp.feature.b.impl.FeatureBListViewModel
 import org.koin.core.context.GlobalContext
 import org.koin.core.parameter.parametersOf
 

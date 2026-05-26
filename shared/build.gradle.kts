@@ -33,6 +33,7 @@ kotlin {
         commonMain.dependencies {
             api(project(":core:common"))
             implementation(project(":core:ui"))
+            implementation(compose.runtime)
             api(project(":feature:auth:api"))
             api(project(":feature:auth:impl"))
             api(project(":feature:a:api"))
@@ -44,12 +45,6 @@ kotlin {
             implementation(libs.koin.core)
             implementation(libs.decompose)
             implementation(libs.kotlinx.serialization.core)
-        }
-        androidMain.dependencies {
-            implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material3)
-            implementation(libs.decompose.compose)
         }
     }
 }

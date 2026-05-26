@@ -1,4 +1,4 @@
-package com.example.testkmpdecomposeapp.feature.b.impl
+package com.example.testkmpdecomposeapp.android.features.b
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -10,6 +10,8 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.example.testkmpdecomposeapp.feature.b.impl.FeatureBListIntent
+import com.example.testkmpdecomposeapp.feature.b.impl.FeatureBListViewModel
 
 @Composable
 internal fun FeatureBListScreen(viewModel: FeatureBListViewModel) {

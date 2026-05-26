@@ -7,8 +7,6 @@ kotlin {
         commonMain.dependencies {
             implementation(project(":feature:auth:api"))
             implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material3)
             implementation(libs.koin.core)
         }
     }

@@ -1,4 +1,4 @@
-package com.example.testkmpdecomposeapp.feature.auth.impl
+package com.example.testkmpdecomposeapp.android.features.c
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -10,9 +10,11 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.example.testkmpdecomposeapp.feature.c.impl.FeatureCDetailsIntent
+import com.example.testkmpdecomposeapp.feature.c.impl.FeatureCDetailsViewModel
 
 @Composable
-internal fun AuthScreen(viewModel: AuthViewModel) {
+internal fun FeatureCDetailsScreen(viewModel: FeatureCDetailsViewModel) {
     val state by viewModel.uiState.collectAsState()
 
     Column(
@@ -21,8 +23,11 @@ internal fun AuthScreen(viewModel: AuthViewModel) {
         verticalArrangement = Arrangement.Center
     ) {
         Text(text = state.title)
-        Button(onClick = { viewModel.onIntent(AuthIntent.LoginClicked) }) {
-            Text(state.loginButtonTitle)
+        Button(onClick = { viewModel.onIntent(FeatureCDetailsIntent.OpenConfirmClicked) }) {
+            Text("Go to confirm")
+        }
+        Button(onClick = { viewModel.onIntent(FeatureCDetailsIntent.BackClicked) }) {
+            Text("Back")
         }
     }
 }

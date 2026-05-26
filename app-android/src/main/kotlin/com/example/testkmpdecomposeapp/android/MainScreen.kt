@@ -1,7 +1,6 @@
-package com.example.testkmpdecomposeapp
+package com.example.testkmpdecomposeapp.android
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -10,56 +9,18 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.arkivanov.decompose.DefaultComponentContext
 import com.arkivanov.decompose.extensions.compose.jetbrains.subscribeAsState
-import com.arkivanov.decompose.extensions.compose.jetbrains.stack.Children
-import com.arkivanov.essenty.lifecycle.LifecycleRegistry
+import com.example.testkmpdecomposeapp.MainComponent
+import com.example.testkmpdecomposeapp.android.features.a.FeatureAScreen
+import com.example.testkmpdecomposeapp.android.features.b.FeatureBScreen
+import com.example.testkmpdecomposeapp.android.features.c.FeatureCScreen
 import com.example.testkmpdecomposeapp.core.common.MainTab
-import com.example.testkmpdecomposeapp.core.ui.AppTheme
-import com.example.testkmpdecomposeapp.feature.a.impl.FeatureAScreen
-import com.example.testkmpdecomposeapp.feature.auth.api.AuthFeatureApi
-import com.example.testkmpdecomposeapp.feature.auth.impl.AuthFeatureScreen
-import com.example.testkmpdecomposeapp.feature.b.impl.FeatureBScreen
-import com.example.testkmpdecomposeapp.feature.c.impl.FeatureCScreen
-import kotlinx.coroutines.delay
 
 @Composable
-fun AppScreen() {
-    initKoin()
-    val lifecycle = remember { LifecycleRegistry() }
-    val root = remember { AppRootComponent(DefaultComponentContext(lifecycle = lifecycle)) }
-
-    AppTheme {
-        Children(stack = root.stack) { child ->
-            when (val instance = child.instance) {
-                is AppRootComponent.Child.Splash -> SplashScreen(onFinished = instance.onFinished)
-                is AppRootComponent.Child.Auth ->
-                    AuthFeatureScreen(onOutput = instance.onOutput)
-                is AppRootComponent.Child.Main -> MainScreen(component = instance.component)
-            }
-        }
-    }
-}
-
-@Composable
-private fun SplashScreen(onFinished: () -> Unit) {
-    LaunchedEffect(Unit) {
-        delay(1200)
-        onFinished()
-    }
-
-    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Text("Splash")
-    }
-}
-
-@Composable
-private fun MainScreen(component: MainComponent) {
+internal fun MainScreen(component: MainComponent) {
     val selectedTab = component.selectedTab
     val stack by component.stack.subscribeAsState()
 

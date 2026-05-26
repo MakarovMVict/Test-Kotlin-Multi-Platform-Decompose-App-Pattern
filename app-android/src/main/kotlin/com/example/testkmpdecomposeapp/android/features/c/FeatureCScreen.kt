@@ -1,9 +1,12 @@
-package com.example.testkmpdecomposeapp.feature.c.impl
+package com.example.testkmpdecomposeapp.android.features.c
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.Children
 import com.example.testkmpdecomposeapp.feature.c.api.FeatureCComponent
+import com.example.testkmpdecomposeapp.feature.c.impl.FeatureCConfirmViewModel
+import com.example.testkmpdecomposeapp.feature.c.impl.FeatureCDetailsViewModel
+import com.example.testkmpdecomposeapp.feature.c.impl.FeatureCListViewModel
 import org.koin.core.context.GlobalContext
 import org.koin.core.parameter.parametersOf
 
@@ -17,7 +20,7 @@ fun FeatureCScreen(component: FeatureCComponent) {
                         parametersOf(component::onItemClick)
                     }
                 }
-                ListScreen(viewModel = viewModel)
+                FeatureCListScreen(viewModel = viewModel)
             }
             is FeatureCComponent.Child.Details -> {
                 val viewModel = remember(child) {
@@ -25,7 +28,7 @@ fun FeatureCScreen(component: FeatureCComponent) {
                         parametersOf(child.itemId, component::onBack, component::onOpenConfirm)
                     }
                 }
-                DetailsScreen(viewModel = viewModel)
+                FeatureCDetailsScreen(viewModel = viewModel)
             }
             is FeatureCComponent.Child.Confirm -> {
                 val viewModel = remember(child) {
@@ -33,7 +36,7 @@ fun FeatureCScreen(component: FeatureCComponent) {
                         parametersOf(child.itemId, component::onBack, component::onDone)
                     }
                 }
-                ConfirmScreen(viewModel = viewModel)
+                FeatureCConfirmScreen(viewModel = viewModel)
             }
         }
     }

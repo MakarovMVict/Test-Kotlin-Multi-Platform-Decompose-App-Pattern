@@ -25,7 +25,13 @@ android {
 
 dependencies {
     implementation(project(":shared"))
+    implementation(project(":core:ui"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)
+    implementation(compose.runtime)
+    implementation(compose.foundation)
+    implementation(compose.material3)
+    implementation(libs.decompose)
+    implementation(libs.decompose.compose)
     implementation(libs.koin.android)
 }
