@@ -21,13 +21,14 @@ final class AppStore: ObservableObject {
 
     deinit {
         bridge.setListener(listener: nil)
+        bridge.close()
     }
 
     func onSplashFinished() {
         bridge.onSplashFinished()
     }
 
-    func authViewModel() -> IosAuthScreenViewModel? {
+    func authViewModel() -> AuthViewModel? {
         bridge.authViewModel()
     }
 
@@ -44,31 +45,31 @@ final class AppStore: ObservableObject {
         }
     }
 
-    func featureAListViewModel() -> IosFeatureAListScreenViewModel? {
+    func featureAListViewModel() -> FeatureAListViewModel? {
         bridge.featureAListViewModel()
     }
 
-    func featureADetailsViewModel() -> IosFeatureADetailsScreenViewModel? {
+    func featureADetailsViewModel() -> FeatureADetailsViewModel? {
         bridge.featureADetailsViewModel()
     }
 
-    func featureBListViewModel() -> IosFeatureBListScreenViewModel? {
+    func featureBListViewModel() -> FeatureBListViewModel? {
         bridge.featureBListViewModel()
     }
 
-    func featureBDetailsViewModel() -> IosFeatureBDetailsScreenViewModel? {
+    func featureBDetailsViewModel() -> FeatureBDetailsViewModel? {
         bridge.featureBDetailsViewModel()
     }
 
-    func featureCListViewModel() -> IosFeatureCListScreenViewModel? {
+    func featureCListViewModel() -> FeatureCListViewModel? {
         bridge.featureCListViewModel()
     }
 
-    func featureCDetailsViewModel() -> IosFeatureCDetailsScreenViewModel? {
+    func featureCDetailsViewModel() -> FeatureCDetailsViewModel? {
         bridge.featureCDetailsViewModel()
     }
 
-    func featureCConfirmViewModel() -> IosFeatureCConfirmScreenViewModel? {
+    func featureCConfirmViewModel() -> FeatureCConfirmViewModel? {
         bridge.featureCConfirmViewModel()
     }
 }

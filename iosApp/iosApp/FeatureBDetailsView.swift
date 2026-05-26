@@ -2,11 +2,12 @@ import SwiftUI
 import shared
 
 struct FeatureBDetailsView: View {
-    let viewModel: IosFeatureBDetailsScreenViewModel
+    let viewModel: FeatureBDetailsViewModel
 
     var body: some View {
         VStack(spacing: 16) {
-            Text(viewModel.title)
+            let state: FeatureBDetailsUiState = viewModel.uiState.value as! FeatureBDetailsUiState
+            Text(state.title)
             Button("Back") {
                 viewModel.onBackClicked()
             }

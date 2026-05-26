@@ -2,11 +2,12 @@ import SwiftUI
 import shared
 
 struct FeatureADetailsView: View {
-    let viewModel: IosFeatureADetailsScreenViewModel
+    let viewModel: FeatureADetailsViewModel
 
     var body: some View {
         VStack(spacing: 16) {
-            Text(viewModel.title)
+            let state: FeatureADetailsUiState = viewModel.uiState.value as! FeatureADetailsUiState
+            Text(state.title)
             Button("Open Feature C confirm") {
                 viewModel.onOpenFeatureCConfirmClicked()
             }

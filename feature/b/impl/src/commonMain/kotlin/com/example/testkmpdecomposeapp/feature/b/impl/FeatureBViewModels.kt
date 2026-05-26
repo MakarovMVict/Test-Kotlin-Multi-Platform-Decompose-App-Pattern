@@ -24,6 +24,10 @@ class FeatureBListViewModel(
             is FeatureBListIntent.OpenItem -> onOpen(intent.itemId)
         }
     }
+
+    fun onItemClicked(itemId: Int) {
+        onIntent(FeatureBListIntent.OpenItem(itemId))
+    }
 }
 
 data class FeatureBDetailsUiState(
@@ -47,5 +51,9 @@ class FeatureBDetailsViewModel(
         when (intent) {
             FeatureBDetailsIntent.BackClicked -> onBack()
         }
+    }
+
+    fun onBackClicked() {
+        onIntent(FeatureBDetailsIntent.BackClicked)
     }
 }

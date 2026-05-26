@@ -25,4 +25,8 @@ class AuthViewModel(
             AuthIntent.LoginClicked -> onAuthorized(AuthFeatureApi.Output.Authorized)
         }
     }
+
+    fun onLoginClicked() {
+        onIntent(AuthIntent.LoginClicked)
+    }
 }

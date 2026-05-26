@@ -1,28 +1,28 @@
 package com.example.testkmpdecomposeapp
 
+import com.arkivanov.decompose.Cancellation
 import com.arkivanov.decompose.DefaultComponentContext
 import com.arkivanov.essenty.lifecycle.LifecycleRegistry
 import com.example.testkmpdecomposeapp.core.common.MainTab
 import com.example.testkmpdecomposeapp.feature.a.api.FeatureAComponent
-import com.example.testkmpdecomposeapp.feature.a.impl.FeatureADetailsIntent
 import com.example.testkmpdecomposeapp.feature.a.impl.FeatureADetailsViewModel
-import com.example.testkmpdecomposeapp.feature.a.impl.FeatureAListIntent
 import com.example.testkmpdecomposeapp.feature.a.impl.FeatureAListViewModel
-import com.example.testkmpdecomposeapp.feature.auth.api.AuthFeatureApi
-import com.example.testkmpdecomposeapp.feature.auth.impl.AuthIntent
 import com.example.testkmpdecomposeapp.feature.auth.impl.AuthViewModel
 import com.example.testkmpdecomposeapp.feature.b.api.FeatureBComponent
-import com.example.testkmpdecomposeapp.feature.b.impl.FeatureBDetailsIntent
 import com.example.testkmpdecomposeapp.feature.b.impl.FeatureBDetailsViewModel
-import com.example.testkmpdecomposeapp.feature.b.impl.FeatureBListIntent
 import com.example.testkmpdecomposeapp.feature.b.impl.FeatureBListViewModel
 import com.example.testkmpdecomposeapp.feature.c.api.FeatureCComponent
-import com.example.testkmpdecomposeapp.feature.c.impl.FeatureCConfirmIntent
 import com.example.testkmpdecomposeapp.feature.c.impl.FeatureCConfirmViewModel
-import com.example.testkmpdecomposeapp.feature.c.impl.FeatureCDetailsIntent
 import com.example.testkmpdecomposeapp.feature.c.impl.FeatureCDetailsViewModel
-import com.example.testkmpdecomposeapp.feature.c.impl.FeatureCListIntent
 import com.example.testkmpdecomposeapp.feature.c.impl.FeatureCListViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
 import org.koin.core.parameter.parametersOf
 
 data class IosAppState(
@@ -36,165 +36,67 @@ interface IosAppStateListener {
     fun onStateChanged(state: IosAppState)
 }
 
-class IosAuthScreenViewModel internal constructor(
-    private val delegate: AuthViewModel,
-    private val onStateChanged: () -> Unit
-) {
-    val title: String get() = delegate.uiState.value.title
-    val loginButtonTitle: String get() = delegate.uiState.value.loginButtonTitle
-
-    fun onLoginClicked() {
-        delegate.onIntent(AuthIntent.LoginClicked)
-        onStateChanged()
-    }
-}
-
-class IosFeatureAListScreenViewModel internal constructor(
-    private val delegate: FeatureAListViewModel,
-    private val onStateChanged: () -> Unit
-) {
-    val title: String get() = delegate.uiState.value.title
-
-    fun itemCount(): Int = delegate.uiState.value.items.size
-    fun itemAt(index: Int): Int = delegate.uiState.value.items[index]
-
-    fun onItemClicked(itemId: Int) {
-        delegate.onIntent(FeatureAListIntent.OpenItem(itemId))
-        onStateChanged()
-    }
-}
-
-class IosFeatureADetailsScreenViewModel internal constructor(
-    private val delegate: FeatureADetailsViewModel,
-    private val onStateChanged: () -> Unit
-) {
-    val title: String get() = delegate.uiState.value.title
-
-    fun onOpenFeatureCConfirmClicked() {
-        delegate.onIntent(FeatureADetailsIntent.OpenFeatureCConfirmClicked)
-        onStateChanged()
-    }
-
-    fun onBackClicked() {
-        delegate.onIntent(FeatureADetailsIntent.BackClicked)
-        onStateChanged()
-    }
-}
-
-class IosFeatureBListScreenViewModel internal constructor(
-    private val delegate: FeatureBListViewModel,
-    private val onStateChanged: () -> Unit
-) {
-    val title: String get() = delegate.uiState.value.title
-
-    fun itemCount(): Int = delegate.uiState.value.items.size
-    fun itemAt(index: Int): Int = delegate.uiState.value.items[index]
-
-    fun onItemClicked(itemId: Int) {
-        delegate.onIntent(FeatureBListIntent.OpenItem(itemId))
-        onStateChanged()
-    }
-}
-
-class IosFeatureBDetailsScreenViewModel internal constructor(
-    private val delegate: FeatureBDetailsViewModel,
-    private val onStateChanged: () -> Unit
-) {
-    val title: String get() = delegate.uiState.value.title
-
-    fun onBackClicked() {
-        delegate.onIntent(FeatureBDetailsIntent.BackClicked)
-        onStateChanged()
-    }
-}
-
-class IosFeatureCListScreenViewModel internal constructor(
-    private val delegate: FeatureCListViewModel,
-    private val onStateChanged: () -> Unit
-) {
-    val title: String get() = delegate.uiState.value.title
-
-    fun itemCount(): Int = delegate.uiState.value.items.size
-    fun itemAt(index: Int): Int = delegate.uiState.value.items[index]
-
-    fun onItemClicked(itemId: Int) {
-        delegate.onIntent(FeatureCListIntent.OpenItem(itemId))
-        onStateChanged()
-    }
-}
-
-class IosFeatureCDetailsScreenViewModel internal constructor(
-    private val delegate: FeatureCDetailsViewModel,
-    private val onStateChanged: () -> Unit
-) {
-    val title: String get() = delegate.uiState.value.title
-
-    fun onOpenConfirmClicked() {
-        delegate.onIntent(FeatureCDetailsIntent.OpenConfirmClicked)
-        onStateChanged()
-    }
-
-    fun onBackClicked() {
-        delegate.onIntent(FeatureCDetailsIntent.BackClicked)
-        onStateChanged()
-    }
-}
-
-class IosFeatureCConfirmScreenViewModel internal constructor(
-    private val delegate: FeatureCConfirmViewModel,
-    private val onStateChanged: () -> Unit
-) {
-    val title: String get() = delegate.uiState.value.title
-    val canComplete: Boolean get() = delegate.uiState.value.canComplete
-
-    fun onDoneClicked() {
-        delegate.onIntent(FeatureCConfirmIntent.DoneClicked)
-        onStateChanged()
-    }
-
-    fun onBackClicked() {
-        delegate.onIntent(FeatureCConfirmIntent.BackClicked)
-        onStateChanged()
-    }
-}
-
 class IosAppBridge {
     private val lifecycle = LifecycleRegistry()
     private val root: AppRootComponent
+    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
     private var listener: IosAppStateListener? = null
+    private var rootStackCancellation: Cancellation? = null
+    private var mainStackCancellation: Cancellation? = null
+    private var featureStackCancellation: Cancellation? = null
+    private var observedMainComponent: MainComponent? = null
+    private var observedFeatureOwner: Any? = null
+
+    private var activeStateOwner: Any? = null
+    private var activeStateJob: Job? = null
 
     private var authOwner: AppRootComponent.Child.Auth? = null
-    private var authVm: IosAuthScreenViewModel? = null
+    private var authVm: AuthViewModel? = null
 
     private var featureAListOwner: FeatureAComponent? = null
-    private var featureAListVm: IosFeatureAListScreenViewModel? = null
+    private var featureAListVm: FeatureAListViewModel? = null
     private var featureADetailsOwner: FeatureAComponent? = null
     private var featureADetailsItemId: Int? = null
-    private var featureADetailsVm: IosFeatureADetailsScreenViewModel? = null
+    private var featureADetailsVm: FeatureADetailsViewModel? = null
 
     private var featureBListOwner: FeatureBComponent? = null
-    private var featureBListVm: IosFeatureBListScreenViewModel? = null
+    private var featureBListVm: FeatureBListViewModel? = null
     private var featureBDetailsOwner: FeatureBComponent? = null
     private var featureBDetailsItemId: Int? = null
-    private var featureBDetailsVm: IosFeatureBDetailsScreenViewModel? = null
+    private var featureBDetailsVm: FeatureBDetailsViewModel? = null
 
     private var featureCListOwner: FeatureCComponent? = null
-    private var featureCListVm: IosFeatureCListScreenViewModel? = null
+    private var featureCListVm: FeatureCListViewModel? = null
     private var featureCDetailsOwner: FeatureCComponent? = null
     private var featureCDetailsItemId: Int? = null
-    private var featureCDetailsVm: IosFeatureCDetailsScreenViewModel? = null
+    private var featureCDetailsVm: FeatureCDetailsViewModel? = null
     private var featureCConfirmOwner: FeatureCComponent? = null
     private var featureCConfirmItemId: Int? = null
-    private var featureCConfirmVm: IosFeatureCConfirmScreenViewModel? = null
+    private var featureCConfirmVm: FeatureCConfirmViewModel? = null
 
     init {
         initKoin()
         root = AppRootComponent(DefaultComponentContext(lifecycle = lifecycle))
+        observeNavigationStacks()
     }
 
     fun setListener(listener: IosAppStateListener?) {
         this.listener = listener
         notifyState()
+    }
+
+    fun close() {
+        clearFeatureStackObservation()
+        mainStackCancellation?.cancel()
+        mainStackCancellation = null
+        observedMainComponent = null
+        rootStackCancellation?.cancel()
+        rootStackCancellation = null
+
+        activeStateJob?.cancel()
+        activeStateJob = null
+        activeStateOwner = null
+        scope.cancel()
     }
 
     fun getState(): IosAppState = buildState()
@@ -205,14 +107,16 @@ class IosAppBridge {
         notifyState()
     }
 
-    fun authViewModel(): IosAuthScreenViewModel? {
-        val child = root.stack.value.active.instance as? AppRootComponent.Child.Auth ?: return null
-        if (authOwner !== child || authVm == null) {
-            val vm = getKoinInstance<AuthViewModel> { parametersOf(child.onOutput) }
-            authOwner = child
-            authVm = IosAuthScreenViewModel(vm, ::notifyState)
+    fun authViewModel(): AuthViewModel? {
+        val child = root.stack.value.active.instance as? AppRootComponent.Child.Auth ?: run {
+            clearStateObservation()
+            return null
         }
-        return authVm
+        if (authOwner !== child || authVm == null) {
+            authOwner = child
+            authVm = getKoinInstance { parametersOf(child.onOutput) }
+        }
+        return authVm?.also { observeUiState(owner = child, flow = it.uiState) }
     }
 
     fun selectTabA() {
@@ -230,107 +134,206 @@ class IosAppBridge {
         notifyState()
     }
 
-    fun featureAListViewModel(): IosFeatureAListScreenViewModel? {
-        val child = currentMainChild() as? MainComponent.Child.FeatureA ?: return null
+    fun featureAListViewModel(): FeatureAListViewModel? {
+        val child = currentMainChild() as? MainComponent.Child.FeatureA ?: run {
+            clearStateObservation()
+            return null
+        }
         val component = child.component
-        if (component.stack.value.active.instance != FeatureAComponent.Child.List) return null
+        if (component.stack.value.active.instance != FeatureAComponent.Child.List) {
+            return null
+        }
 
         if (featureAListOwner !== component || featureAListVm == null) {
-            val vm = getKoinInstance<FeatureAListViewModel> { parametersOf(component::onOpenDetails) }
             featureAListOwner = component
-            featureAListVm = IosFeatureAListScreenViewModel(vm, ::notifyState)
+            featureAListVm = getKoinInstance { parametersOf(component::onOpenDetails) }
         }
-        return featureAListVm
+        return featureAListVm?.also { observeUiState(owner = Pair(component, "a-list"), flow = it.uiState) }
     }
 
-    fun featureADetailsViewModel(): IosFeatureADetailsScreenViewModel? {
-        val child = currentMainChild() as? MainComponent.Child.FeatureA ?: return null
+    fun featureADetailsViewModel(): FeatureADetailsViewModel? {
+        val child = currentMainChild() as? MainComponent.Child.FeatureA ?: run {
+            clearStateObservation()
+            return null
+        }
         val component = child.component
         val details = component.stack.value.active.instance as? FeatureAComponent.Child.Details ?: return null
 
         if (featureADetailsOwner !== component || featureADetailsItemId != details.itemId || featureADetailsVm == null) {
-            val vm = getKoinInstance<FeatureADetailsViewModel> {
-                parametersOf(details.itemId, component::onBack, component::onOpenFeatureCConfirm)
-            }
             featureADetailsOwner = component
             featureADetailsItemId = details.itemId
-            featureADetailsVm = IosFeatureADetailsScreenViewModel(vm, ::notifyState)
+            featureADetailsVm = getKoinInstance {
+                parametersOf(details.itemId, component::onBack, component::onOpenFeatureCConfirm)
+            }
         }
-        return featureADetailsVm
+        return featureADetailsVm?.also {
+            observeUiState(owner = Triple(component, "a-details", details.itemId), flow = it.uiState)
+        }
     }
 
-    fun featureBListViewModel(): IosFeatureBListScreenViewModel? {
-        val child = currentMainChild() as? MainComponent.Child.FeatureB ?: return null
+    fun featureBListViewModel(): FeatureBListViewModel? {
+        val child = currentMainChild() as? MainComponent.Child.FeatureB ?: run {
+            clearStateObservation()
+            return null
+        }
         val component = child.component
-        if (component.stack.value.active.instance != FeatureBComponent.Child.List) return null
+        if (component.stack.value.active.instance != FeatureBComponent.Child.List) {
+            return null
+        }
 
         if (featureBListOwner !== component || featureBListVm == null) {
-            val vm = getKoinInstance<FeatureBListViewModel> { parametersOf(component::onOpenDetails) }
             featureBListOwner = component
-            featureBListVm = IosFeatureBListScreenViewModel(vm, ::notifyState)
+            featureBListVm = getKoinInstance { parametersOf(component::onOpenDetails) }
         }
-        return featureBListVm
+        return featureBListVm?.also { observeUiState(owner = Pair(component, "b-list"), flow = it.uiState) }
     }
 
-    fun featureBDetailsViewModel(): IosFeatureBDetailsScreenViewModel? {
-        val child = currentMainChild() as? MainComponent.Child.FeatureB ?: return null
+    fun featureBDetailsViewModel(): FeatureBDetailsViewModel? {
+        val child = currentMainChild() as? MainComponent.Child.FeatureB ?: run {
+            clearStateObservation()
+            return null
+        }
         val component = child.component
         val details = component.stack.value.active.instance as? FeatureBComponent.Child.Details ?: return null
 
         if (featureBDetailsOwner !== component || featureBDetailsItemId != details.itemId || featureBDetailsVm == null) {
-            val vm = getKoinInstance<FeatureBDetailsViewModel> {
-                parametersOf(details.itemId, component::onBack)
-            }
             featureBDetailsOwner = component
             featureBDetailsItemId = details.itemId
-            featureBDetailsVm = IosFeatureBDetailsScreenViewModel(vm, ::notifyState)
+            featureBDetailsVm = getKoinInstance {
+                parametersOf(details.itemId, component::onBack)
+            }
         }
-        return featureBDetailsVm
+        return featureBDetailsVm?.also {
+            observeUiState(owner = Triple(component, "b-details", details.itemId), flow = it.uiState)
+        }
     }
 
-    fun featureCListViewModel(): IosFeatureCListScreenViewModel? {
-        val child = currentMainChild() as? MainComponent.Child.FeatureC ?: return null
+    fun featureCListViewModel(): FeatureCListViewModel? {
+        val child = currentMainChild() as? MainComponent.Child.FeatureC ?: run {
+            clearStateObservation()
+            return null
+        }
         val component = child.component
-        if (component.stack.value.active.instance != FeatureCComponent.Child.List) return null
+        if (component.stack.value.active.instance != FeatureCComponent.Child.List) {
+            return null
+        }
 
         if (featureCListOwner !== component || featureCListVm == null) {
-            val vm = getKoinInstance<FeatureCListViewModel> { parametersOf(component::onItemClick) }
             featureCListOwner = component
-            featureCListVm = IosFeatureCListScreenViewModel(vm, ::notifyState)
+            featureCListVm = getKoinInstance { parametersOf(component::onItemClick) }
         }
-        return featureCListVm
+        return featureCListVm?.also { observeUiState(owner = Pair(component, "c-list"), flow = it.uiState) }
     }
 
-    fun featureCDetailsViewModel(): IosFeatureCDetailsScreenViewModel? {
-        val child = currentMainChild() as? MainComponent.Child.FeatureC ?: return null
+    fun featureCDetailsViewModel(): FeatureCDetailsViewModel? {
+        val child = currentMainChild() as? MainComponent.Child.FeatureC ?: run {
+            clearStateObservation()
+            return null
+        }
         val component = child.component
         val details = component.stack.value.active.instance as? FeatureCComponent.Child.Details ?: return null
 
         if (featureCDetailsOwner !== component || featureCDetailsItemId != details.itemId || featureCDetailsVm == null) {
-            val vm = getKoinInstance<FeatureCDetailsViewModel> {
-                parametersOf(details.itemId, component::onBack, component::onOpenConfirm)
-            }
             featureCDetailsOwner = component
             featureCDetailsItemId = details.itemId
-            featureCDetailsVm = IosFeatureCDetailsScreenViewModel(vm, ::notifyState)
+            featureCDetailsVm = getKoinInstance {
+                parametersOf(details.itemId, component::onBack, component::onOpenConfirm)
+            }
         }
-        return featureCDetailsVm
+        return featureCDetailsVm?.also {
+            observeUiState(owner = Triple(component, "c-details", details.itemId), flow = it.uiState)
+        }
     }
 
-    fun featureCConfirmViewModel(): IosFeatureCConfirmScreenViewModel? {
-        val child = currentMainChild() as? MainComponent.Child.FeatureC ?: return null
+    fun featureCConfirmViewModel(): FeatureCConfirmViewModel? {
+        val child = currentMainChild() as? MainComponent.Child.FeatureC ?: run {
+            clearStateObservation()
+            return null
+        }
         val component = child.component
         val confirm = component.stack.value.active.instance as? FeatureCComponent.Child.Confirm ?: return null
 
         if (featureCConfirmOwner !== component || featureCConfirmItemId != confirm.itemId || featureCConfirmVm == null) {
-            val vm = getKoinInstance<FeatureCConfirmViewModel> {
-                parametersOf(confirm.itemId, component::onBack, component::onDone)
-            }
             featureCConfirmOwner = component
             featureCConfirmItemId = confirm.itemId
-            featureCConfirmVm = IosFeatureCConfirmScreenViewModel(vm, ::notifyState)
+            featureCConfirmVm = getKoinInstance {
+                parametersOf(confirm.itemId, component::onBack, component::onDone)
+            }
         }
-        return featureCConfirmVm
+        return featureCConfirmVm?.also {
+            observeUiState(owner = Triple(component, "c-confirm", confirm.itemId), flow = it.uiState)
+        }
+    }
+
+    private fun observeUiState(owner: Any, flow: StateFlow<*>) {
+        if (activeStateOwner == owner) return
+
+        activeStateJob?.cancel()
+        activeStateOwner = owner
+        activeStateJob = scope.launch {
+            flow.collect {
+                notifyState()
+            }
+        }
+    }
+
+    private fun clearStateObservation() {
+        activeStateJob?.cancel()
+        activeStateJob = null
+        activeStateOwner = null
+    }
+
+    private fun observeNavigationStacks() {
+        rootStackCancellation?.cancel()
+        rootStackCancellation = root.stack.observe { stack ->
+            val mainComponent = (stack.active.instance as? AppRootComponent.Child.Main)?.component
+            observeMainStack(mainComponent)
+            notifyState()
+        }
+    }
+
+    private fun observeMainStack(mainComponent: MainComponent?) {
+        if (observedMainComponent === mainComponent) return
+
+        observedMainComponent = mainComponent
+        mainStackCancellation?.cancel()
+        mainStackCancellation = null
+        clearFeatureStackObservation()
+
+        if (mainComponent == null) return
+
+        mainStackCancellation = mainComponent.stack.observe { stack ->
+            observeFeatureStack(stack.active.instance)
+            notifyState()
+        }
+    }
+
+    private fun observeFeatureStack(mainChild: MainComponent.Child) {
+        val (owner, stack) = when (mainChild) {
+            is MainComponent.Child.FeatureA -> {
+                mainChild.component to mainChild.component.stack
+            }
+            is MainComponent.Child.FeatureB -> {
+                mainChild.component to mainChild.component.stack
+            }
+            is MainComponent.Child.FeatureC -> {
+                mainChild.component to mainChild.component.stack
+            }
+        }
+
+        if (observedFeatureOwner === owner) return
+
+        clearFeatureStackObservation()
+        observedFeatureOwner = owner
+        featureStackCancellation = stack.observe {
+            notifyState()
+        }
+    }
+
+    private fun clearFeatureStackObservation() {
+        featureStackCancellation?.cancel()
+        featureStackCancellation = null
+        observedFeatureOwner = null
     }
 
     private fun notifyState() {

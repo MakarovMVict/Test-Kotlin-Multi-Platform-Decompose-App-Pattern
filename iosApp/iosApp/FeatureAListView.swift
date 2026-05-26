@@ -2,13 +2,13 @@ import SwiftUI
 import shared
 
 struct FeatureAListView: View {
-    let viewModel: IosFeatureAListScreenViewModel
+    let viewModel: FeatureAListViewModel
 
     var body: some View {
         VStack(spacing: 16) {
-            Text(viewModel.title)
-            ForEach(0..<Int(viewModel.itemCount()), id: \.self) { index in
-                let itemId = Int(viewModel.itemAt(index: Int32(index)))
+            let state: FeatureAListUiState = viewModel.uiState.value as! FeatureAListUiState
+            Text(state.title)
+            ForEach(state.items.compactMap { ($0 as? KotlinInt)?.intValue }, id: \.self) { itemId in
                 Button("Open A item \(itemId)") {
                     viewModel.onItemClicked(itemId: Int32(itemId))
                 }

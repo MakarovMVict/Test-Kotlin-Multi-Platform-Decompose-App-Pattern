@@ -24,6 +24,10 @@ class FeatureAListViewModel(
             is FeatureAListIntent.OpenItem -> onOpen(intent.itemId)
         }
     }
+
+    fun onItemClicked(itemId: Int) {
+        onIntent(FeatureAListIntent.OpenItem(itemId))
+    }
 }
 
 data class FeatureADetailsUiState(
@@ -51,5 +55,13 @@ class FeatureADetailsViewModel(
             FeatureADetailsIntent.BackClicked -> onBack()
             FeatureADetailsIntent.OpenFeatureCConfirmClicked -> onOpenFeatureCConfirm(detailsItemId)
         }
+    }
+
+    fun onOpenFeatureCConfirmClicked() {
+        onIntent(FeatureADetailsIntent.OpenFeatureCConfirmClicked)
+    }
+
+    fun onBackClicked() {
+        onIntent(FeatureADetailsIntent.BackClicked)
     }
 }

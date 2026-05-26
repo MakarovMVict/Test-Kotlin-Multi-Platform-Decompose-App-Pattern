@@ -30,6 +30,10 @@ class FeatureCListViewModel(
             is FeatureCListIntent.OpenItem -> onOpen(intent.itemId)
         }
     }
+
+    fun onItemClicked(itemId: Int) {
+        onIntent(FeatureCListIntent.OpenItem(itemId))
+    }
 }
 
 data class FeatureCDetailsUiState(
@@ -59,6 +63,14 @@ class FeatureCDetailsViewModel(
             FeatureCDetailsIntent.OpenConfirmClicked -> onOpenConfirm()
             FeatureCDetailsIntent.BackClicked -> onBack()
         }
+    }
+
+    fun onOpenConfirmClicked() {
+        onIntent(FeatureCDetailsIntent.OpenConfirmClicked)
+    }
+
+    fun onBackClicked() {
+        onIntent(FeatureCDetailsIntent.BackClicked)
     }
 }
 
@@ -98,5 +110,13 @@ class FeatureCConfirmViewModel(
                 }
             }
         }
+    }
+
+    fun onDoneClicked() {
+        onIntent(FeatureCConfirmIntent.DoneClicked)
+    }
+
+    fun onBackClicked() {
+        onIntent(FeatureCConfirmIntent.BackClicked)
     }
 }
