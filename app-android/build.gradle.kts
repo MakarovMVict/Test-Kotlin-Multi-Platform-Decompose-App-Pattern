@@ -26,6 +26,10 @@ android {
 dependencies {
     implementation(project(":shared"))
     implementation(project(":core:ui"))
+    implementation(project(":app-android:features:authFeature"))
+    implementation(project(":app-android:features:featureA"))
+    implementation(project(":app-android:features:featureB"))
+    implementation(project(":app-android:features:featureC"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(compose.runtime)
