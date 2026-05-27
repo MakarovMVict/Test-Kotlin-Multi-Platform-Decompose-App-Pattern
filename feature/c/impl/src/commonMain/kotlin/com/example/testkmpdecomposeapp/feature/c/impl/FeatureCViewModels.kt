@@ -14,10 +14,12 @@ data class FeatureCListUiState(
 
 sealed interface FeatureCListIntent {
     data class OpenItem(val itemId: Int) : FeatureCListIntent
+    data class ShowNotification(val itemId: Int) : FeatureCListIntent
 }
 
 class FeatureCListViewModel(
     getItemsUseCase: GetFeatureCItemsUseCase,
+    private val notificationManager: FeatureCNotificationManager,
     private val onOpen: (Int) -> Unit
 ) {
     private val _uiState = MutableStateFlow(
@@ -28,11 +30,18 @@ class FeatureCListViewModel(
     fun onIntent(intent: FeatureCListIntent) {
         when (intent) {
             is FeatureCListIntent.OpenItem -> onOpen(intent.itemId)
+            is FeatureCListIntent.ShowNotification -> notificationManager.showTestNotification(
+                intent.itemId
+            )
         }
     }
 
     fun onItemClicked(itemId: Int) {
         onIntent(FeatureCListIntent.OpenItem(itemId))
+    }
+
+    fun onShowNotificationClicked(itemId: Int = 1) {
+        onIntent(FeatureCListIntent.ShowNotification(itemId))
     }
 }
 

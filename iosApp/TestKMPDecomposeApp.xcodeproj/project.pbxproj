@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A10000000000000000000001 /* TestKMPDecomposeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000001 /* TestKMPDecomposeApp.swift */; };
+		A10000000000000000000015 /* NotificationAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000015 /* NotificationAppDelegate.swift */; };
 		A10000000000000000000002 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000002 /* RootView.swift */; };
 		A10000000000000000000003 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000003 /* SplashView.swift */; };
 		A10000000000000000000004 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000004 /* AuthView.swift */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		C10000000000000000000001 /* TestKMPDecomposeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestKMPDecomposeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B10000000000000000000001 /* TestKMPDecomposeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestKMPDecomposeApp.swift; sourceTree = "<group>"; };
+		B10000000000000000000015 /* NotificationAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAppDelegate.swift; sourceTree = "<group>"; };
 		B10000000000000000000002 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		B10000000000000000000003 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		B10000000000000000000004 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				B10000000000000000000001 /* TestKMPDecomposeApp.swift */,
+				B10000000000000000000015 /* NotificationAppDelegate.swift */,
 				B10000000000000000000002 /* RootView.swift */,
 				B10000000000000000000003 /* SplashView.swift */,
 				B10000000000000000000005 /* MainTabView.swift */,
@@ -302,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A10000000000000000000001 /* TestKMPDecomposeApp.swift in Sources */,
+				A10000000000000000000015 /* NotificationAppDelegate.swift in Sources */,
 				A10000000000000000000002 /* RootView.swift in Sources */,
 				A10000000000000000000003 /* SplashView.swift in Sources */,
 				A10000000000000000000004 /* AuthView.swift in Sources */,

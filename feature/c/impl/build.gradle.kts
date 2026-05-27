@@ -11,6 +11,9 @@ kotlin {
             implementation(libs.decompose)
             implementation(libs.koin.core)
         }
+        androidMain.dependencies {
+            implementation(libs.androidx.core.ktx)
+        }
     }
 }
 

@@ -9,6 +9,8 @@ import com.example.testkmpdecomposeapp.feature.c.impl.domain.GetFeatureCItemsUse
 import org.koin.dsl.module
 
 val featureCModule = module {
+    includes(featureCPlatformModule)
+
     single<FeatureCApi> { FeatureCImpl() }
     single<FeatureCRepository> { FeatureCRepositoryImpl() }
     factory { GetFeatureCItemsUseCase(repository = get()) }
@@ -18,6 +20,7 @@ val featureCModule = module {
     factory { (onOpen: (Int) -> Unit) ->
         FeatureCListViewModel(
             getItemsUseCase = get(),
+            notificationManager = get(),
             onOpen = onOpen
         )
     }

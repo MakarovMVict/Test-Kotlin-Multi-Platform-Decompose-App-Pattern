@@ -19,10 +19,10 @@ private val sharedModules: List<Module> = listOf(
 
 private var appKoin: Koin? = null
 
-fun initKoin() {
+fun initKoin(platformModules: List<Module> = emptyList()) {
     if (appKoin == null) {
         appKoin = startKoin {
-            modules(sharedModules)
+            modules(sharedModules + platformModules)
         }.koin
     }
 }
