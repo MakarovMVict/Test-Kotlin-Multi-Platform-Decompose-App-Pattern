@@ -1,6 +1,8 @@
 package com.example.testkmpdecomposeapp.feature.a.impl
 
 import com.example.testkmpdecomposeapp.feature.a.api.FeatureAApi
+import com.example.testkmpdecomposeapp.feature.a.impl.presentation.FeatureADetailsViewModel
+import com.example.testkmpdecomposeapp.feature.a.impl.presentation.FeatureAListViewModel
 import org.koin.dsl.module
 
 val featureAModule = module {

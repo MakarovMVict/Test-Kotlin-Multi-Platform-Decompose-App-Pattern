@@ -12,8 +12,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.example.testkmpdecomposeapp.feature.auth.api.AuthFeatureApi
-import com.example.testkmpdecomposeapp.feature.auth.impl.AuthIntent
-import com.example.testkmpdecomposeapp.feature.auth.impl.AuthViewModel
+import com.example.testkmpdecomposeapp.feature.auth.impl.presentation.AuthIntent
+import com.example.testkmpdecomposeapp.feature.auth.impl.presentation.AuthViewModel
 import org.koin.core.context.GlobalContext
 import org.koin.core.parameter.parametersOf
 

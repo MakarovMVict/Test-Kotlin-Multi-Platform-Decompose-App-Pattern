@@ -10,8 +10,8 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.example.testkmpdecomposeapp.feature.c.impl.FeatureCConfirmIntent
-import com.example.testkmpdecomposeapp.feature.c.impl.FeatureCConfirmViewModel
+import com.example.testkmpdecomposeapp.feature.c.impl.presentation.FeatureCConfirmIntent
+import com.example.testkmpdecomposeapp.feature.c.impl.presentation.FeatureCConfirmViewModel
 
 @Composable
 internal fun FeatureCConfirmScreen(viewModel: FeatureCConfirmViewModel) {

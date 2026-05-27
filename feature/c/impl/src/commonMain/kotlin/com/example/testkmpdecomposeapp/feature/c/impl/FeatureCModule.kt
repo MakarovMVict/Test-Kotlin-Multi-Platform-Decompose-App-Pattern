@@ -6,6 +6,9 @@ import com.example.testkmpdecomposeapp.feature.c.impl.domain.ConfirmFeatureCItem
 import com.example.testkmpdecomposeapp.feature.c.impl.domain.FeatureCRepository
 import com.example.testkmpdecomposeapp.feature.c.impl.domain.GetFeatureCItemDetailsUseCase
 import com.example.testkmpdecomposeapp.feature.c.impl.domain.GetFeatureCItemsUseCase
+import com.example.testkmpdecomposeapp.feature.c.impl.presentation.FeatureCConfirmViewModel
+import com.example.testkmpdecomposeapp.feature.c.impl.presentation.FeatureCDetailsViewModel
+import com.example.testkmpdecomposeapp.feature.c.impl.presentation.FeatureCListViewModel
 import org.koin.dsl.module
 
 val featureCModule = module {

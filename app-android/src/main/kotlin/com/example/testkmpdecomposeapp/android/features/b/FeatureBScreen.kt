@@ -4,8 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.Children
 import com.example.testkmpdecomposeapp.feature.b.api.FeatureBComponent
-import com.example.testkmpdecomposeapp.feature.b.impl.FeatureBDetailsViewModel
-import com.example.testkmpdecomposeapp.feature.b.impl.FeatureBListViewModel
+import com.example.testkmpdecomposeapp.feature.b.impl.presentation.FeatureBDetailsViewModel
+import com.example.testkmpdecomposeapp.feature.b.impl.presentation.FeatureBListViewModel
 import org.koin.core.context.GlobalContext
 import org.koin.core.parameter.parametersOf
 

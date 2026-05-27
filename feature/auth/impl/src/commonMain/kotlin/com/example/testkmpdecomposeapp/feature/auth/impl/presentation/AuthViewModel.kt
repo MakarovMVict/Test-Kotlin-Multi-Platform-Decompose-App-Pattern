@@ -1,4 +1,4 @@
-package com.example.testkmpdecomposeapp.feature.auth.impl
+package com.example.testkmpdecomposeapp.feature.auth.impl.presentation
 
 import com.example.testkmpdecomposeapp.feature.auth.api.AuthFeatureApi
 import kotlinx.coroutines.flow.MutableStateFlow
