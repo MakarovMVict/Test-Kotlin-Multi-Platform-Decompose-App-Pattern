@@ -4,9 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.Children
 import com.example.testkmpdecomposeapp.feature.c.api.FeatureCComponent
-import com.example.testkmpdecomposeapp.feature.c.impl.presentation.FeatureCConfirmViewModel
-import com.example.testkmpdecomposeapp.feature.c.impl.presentation.FeatureCDetailsViewModel
-import com.example.testkmpdecomposeapp.feature.c.impl.presentation.FeatureCListViewModel
+import com.example.testkmpdecomposeapp.feature.c.api.presentation.FeatureCConfirmViewModel
+import com.example.testkmpdecomposeapp.feature.c.api.presentation.FeatureCDetailsViewModel
+import com.example.testkmpdecomposeapp.feature.c.api.presentation.FeatureCListViewModel
 import org.koin.core.context.GlobalContext
 import org.koin.core.parameter.parametersOf
 

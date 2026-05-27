@@ -20,7 +20,6 @@ android {
 
 dependencies {
     implementation(project(":feature:a:api"))
-    implementation(project(":feature:a:impl"))
     implementation(libs.decompose)
     implementation(compose.runtime)
     implementation(compose.foundation)

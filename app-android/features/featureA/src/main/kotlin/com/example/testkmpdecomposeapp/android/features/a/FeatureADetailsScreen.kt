@@ -10,8 +10,8 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.example.testkmpdecomposeapp.feature.a.impl.presentation.FeatureADetailsIntent
-import com.example.testkmpdecomposeapp.feature.a.impl.presentation.FeatureADetailsViewModel
+import com.example.testkmpdecomposeapp.feature.a.api.presentation.FeatureADetailsIntent
+import com.example.testkmpdecomposeapp.feature.a.api.presentation.FeatureADetailsViewModel
 
 @Composable
 internal fun FeatureADetailsScreen(viewModel: FeatureADetailsViewModel) {

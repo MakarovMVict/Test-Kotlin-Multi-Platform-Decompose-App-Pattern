@@ -10,8 +10,8 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.example.testkmpdecomposeapp.feature.a.impl.presentation.FeatureAListIntent
-import com.example.testkmpdecomposeapp.feature.a.impl.presentation.FeatureAListViewModel
+import com.example.testkmpdecomposeapp.feature.a.api.presentation.FeatureAListIntent
+import com.example.testkmpdecomposeapp.feature.a.api.presentation.FeatureAListViewModel
 
 @Composable
 internal fun FeatureAListScreen(viewModel: FeatureAListViewModel) {

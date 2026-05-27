@@ -10,8 +10,8 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.example.testkmpdecomposeapp.feature.b.impl.presentation.FeatureBListIntent
-import com.example.testkmpdecomposeapp.feature.b.impl.presentation.FeatureBListViewModel
+import com.example.testkmpdecomposeapp.feature.b.api.presentation.FeatureBListIntent
+import com.example.testkmpdecomposeapp.feature.b.api.presentation.FeatureBListViewModel
 
 @Composable
 internal fun FeatureBListScreen(viewModel: FeatureBListViewModel) {

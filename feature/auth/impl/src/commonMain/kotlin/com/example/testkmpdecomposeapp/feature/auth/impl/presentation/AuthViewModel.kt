@@ -1,32 +1,26 @@
 package com.example.testkmpdecomposeapp.feature.auth.impl.presentation
 
 import com.example.testkmpdecomposeapp.feature.auth.api.AuthFeatureApi
+import com.example.testkmpdecomposeapp.feature.auth.api.presentation.AuthIntent
+import com.example.testkmpdecomposeapp.feature.auth.api.presentation.AuthUiState
+import com.example.testkmpdecomposeapp.feature.auth.api.presentation.AuthViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-data class AuthUiState(
-    val title: String = "Экран авторизации",
-    val loginButtonTitle: String = "Войти"
-)
-
-sealed interface AuthIntent {
-    data object LoginClicked : AuthIntent
-}
-
-class AuthViewModel(
+internal class AuthViewModelImpl(
     private val onAuthorized: (AuthFeatureApi.Output) -> Unit
-) {
+) : AuthViewModel {
     private val _uiState = MutableStateFlow(AuthUiState())
-    val uiState: StateFlow<AuthUiState> = _uiState.asStateFlow()
+    override val uiState: StateFlow<AuthUiState> = _uiState.asStateFlow()
 
-    fun onIntent(intent: AuthIntent) {
+    override fun onIntent(intent: AuthIntent) {
         when (intent) {
             AuthIntent.LoginClicked -> onAuthorized(AuthFeatureApi.Output.Authorized)
         }
     }
 
-    fun onLoginClicked() {
+    override fun onLoginClicked() {
         onIntent(AuthIntent.LoginClicked)
     }
 }

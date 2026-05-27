@@ -17,8 +17,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.core.content.ContextCompat
-import com.example.testkmpdecomposeapp.feature.c.impl.presentation.FeatureCListIntent
-import com.example.testkmpdecomposeapp.feature.c.impl.presentation.FeatureCListViewModel
+import com.example.testkmpdecomposeapp.feature.c.api.presentation.FeatureCListIntent
+import com.example.testkmpdecomposeapp.feature.c.api.presentation.FeatureCListViewModel
 
 @Composable
 internal fun FeatureCListScreen(viewModel: FeatureCListViewModel) {

@@ -1,33 +1,28 @@
 package com.example.testkmpdecomposeapp.feature.b.impl.presentation
 
+import com.example.testkmpdecomposeapp.feature.b.api.presentation.FeatureBDetailsIntent
+import com.example.testkmpdecomposeapp.feature.b.api.presentation.FeatureBDetailsUiState
+import com.example.testkmpdecomposeapp.feature.b.api.presentation.FeatureBDetailsViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-data class FeatureBDetailsUiState(
-    val title: String
-)
-
-sealed interface FeatureBDetailsIntent {
-    data object BackClicked : FeatureBDetailsIntent
-}
-
-class FeatureBDetailsViewModel(
+internal class FeatureBDetailsViewModelImpl(
     itemId: Int,
     private val onBack: () -> Unit
-) {
+) : FeatureBDetailsViewModel {
     private val _uiState = MutableStateFlow(
         FeatureBDetailsUiState(title = "Feature B - Details #$itemId")
     )
-    val uiState: StateFlow<FeatureBDetailsUiState> = _uiState.asStateFlow()
+    override val uiState: StateFlow<FeatureBDetailsUiState> = _uiState.asStateFlow()
 
-    fun onIntent(intent: FeatureBDetailsIntent) {
+    override fun onIntent(intent: FeatureBDetailsIntent) {
         when (intent) {
             FeatureBDetailsIntent.BackClicked -> onBack()
         }
     }
 
-    fun onBackClicked() {
+    override fun onBackClicked() {
         onIntent(FeatureBDetailsIntent.BackClicked)
     }
 }

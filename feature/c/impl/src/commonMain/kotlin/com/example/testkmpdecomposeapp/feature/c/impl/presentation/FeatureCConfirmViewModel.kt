@@ -1,28 +1,21 @@
 package com.example.testkmpdecomposeapp.feature.c.impl.presentation
 
+import com.example.testkmpdecomposeapp.feature.c.api.presentation.FeatureCConfirmIntent
+import com.example.testkmpdecomposeapp.feature.c.api.presentation.FeatureCConfirmUiState
+import com.example.testkmpdecomposeapp.feature.c.api.presentation.FeatureCConfirmViewModel
 import com.example.testkmpdecomposeapp.feature.c.impl.domain.ConfirmFeatureCItemUseCase
 import com.example.testkmpdecomposeapp.feature.c.impl.domain.GetFeatureCItemDetailsUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-data class FeatureCConfirmUiState(
-    val title: String,
-    val canComplete: Boolean
-)
-
-sealed interface FeatureCConfirmIntent {
-    data object DoneClicked : FeatureCConfirmIntent
-    data object BackClicked : FeatureCConfirmIntent
-}
-
-class FeatureCConfirmViewModel(
+internal class FeatureCConfirmViewModelImpl(
     itemId: Int,
     getItemDetailsUseCase: GetFeatureCItemDetailsUseCase,
     private val confirmItemUseCase: ConfirmFeatureCItemUseCase,
     private val onBack: () -> Unit,
     private val onDone: () -> Unit
-) {
+) : FeatureCConfirmViewModel {
     private val targetItemId = itemId
     private val itemExists = getItemDetailsUseCase(itemId) != null
     private val _uiState = MutableStateFlow(
@@ -31,9 +24,9 @@ class FeatureCConfirmViewModel(
             canComplete = itemExists
         )
     )
-    val uiState: StateFlow<FeatureCConfirmUiState> = _uiState.asStateFlow()
+    override val uiState: StateFlow<FeatureCConfirmUiState> = _uiState.asStateFlow()
 
-    fun onIntent(intent: FeatureCConfirmIntent) {
+    override fun onIntent(intent: FeatureCConfirmIntent) {
         when (intent) {
             FeatureCConfirmIntent.BackClicked -> onBack()
             FeatureCConfirmIntent.DoneClicked -> {
@@ -44,11 +37,11 @@ class FeatureCConfirmViewModel(
         }
     }
 
-    fun onDoneClicked() {
+    override fun onDoneClicked() {
         onIntent(FeatureCConfirmIntent.DoneClicked)
     }
 
-    fun onBackClicked() {
+    override fun onBackClicked() {
         onIntent(FeatureCConfirmIntent.BackClicked)
     }
 }

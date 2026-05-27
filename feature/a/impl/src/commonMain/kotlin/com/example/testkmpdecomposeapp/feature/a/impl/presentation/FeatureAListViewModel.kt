@@ -1,31 +1,25 @@
 package com.example.testkmpdecomposeapp.feature.a.impl.presentation
 
+import com.example.testkmpdecomposeapp.feature.a.api.presentation.FeatureAListIntent
+import com.example.testkmpdecomposeapp.feature.a.api.presentation.FeatureAListUiState
+import com.example.testkmpdecomposeapp.feature.a.api.presentation.FeatureAListViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-data class FeatureAListUiState(
-    val title: String = "Feature A - List",
-    val items: List<Int> = listOf(1, 2)
-)
-
-sealed interface FeatureAListIntent {
-    data class OpenItem(val itemId: Int) : FeatureAListIntent
-}
-
-class FeatureAListViewModel(
+internal class FeatureAListViewModelImpl(
     private val onOpen: (Int) -> Unit
-) {
+) : FeatureAListViewModel {
     private val _uiState = MutableStateFlow(FeatureAListUiState())
-    val uiState: StateFlow<FeatureAListUiState> = _uiState.asStateFlow()
+    override val uiState: StateFlow<FeatureAListUiState> = _uiState.asStateFlow()
 
-    fun onIntent(intent: FeatureAListIntent) {
+    override fun onIntent(intent: FeatureAListIntent) {
         when (intent) {
             is FeatureAListIntent.OpenItem -> onOpen(intent.itemId)
         }
     }
 
-    fun onItemClicked(itemId: Int) {
+    override fun onItemClicked(itemId: Int) {
         onIntent(FeatureAListIntent.OpenItem(itemId))
     }
 }
