@@ -1,10 +1,14 @@
 import SwiftUI
 import shared
 
-struct FeatureCConfirmView: View {
-    let viewModel: FeatureCConfirmViewModel
+public struct FeatureCConfirmView: View {
+    public let viewModel: FeatureCConfirmViewModel
 
-    var body: some View {
+    public init(viewModel: FeatureCConfirmViewModel) {
+        self.viewModel = viewModel
+    }
+
+    public var body: some View {
         VStack(spacing: 16) {
             Text(viewModel.state.title)
             Button("Done") {

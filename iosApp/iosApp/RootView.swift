@@ -1,6 +1,7 @@
 import SwiftUI
 import Foundation
 import shared
+import AuthUI
 
 final class AppStore: ObservableObject {
     @Published var state: IosAppState

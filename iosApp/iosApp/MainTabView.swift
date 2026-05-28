@@ -1,4 +1,7 @@
 import SwiftUI
+import FeatureAUI
+import FeatureBUI
+import FeatureCUI
 
 struct MainTabView: View {
     @ObservedObject var store: AppStore

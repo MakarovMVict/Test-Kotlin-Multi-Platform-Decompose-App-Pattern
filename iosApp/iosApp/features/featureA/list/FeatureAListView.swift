@@ -1,10 +1,14 @@
 import SwiftUI
 import shared
 
-struct FeatureAListView: View {
-    let viewModel: FeatureAListViewModel
+public struct FeatureAListView: View {
+    public let viewModel: FeatureAListViewModel
 
-    var body: some View {
+    public init(viewModel: FeatureAListViewModel) {
+        self.viewModel = viewModel
+    }
+
+    public var body: some View {
         VStack(spacing: 16) {
             Text(viewModel.state.title)
             ForEach(viewModel.state.items.compactMap { ($0 as? KotlinInt)?.intValue }, id: \.self) { itemId in

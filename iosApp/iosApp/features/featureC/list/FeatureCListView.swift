@@ -1,10 +1,14 @@
 import SwiftUI
 import shared
 
-struct FeatureCListView: View {
-    let viewModel: FeatureCListViewModel
+public struct FeatureCListView: View {
+    public let viewModel: FeatureCListViewModel
 
-    var body: some View {
+    public init(viewModel: FeatureCListViewModel) {
+        self.viewModel = viewModel
+    }
+
+    public var body: some View {
         VStack(spacing: 16) {
             Text(viewModel.state.title)
             Button("Show test notification") {

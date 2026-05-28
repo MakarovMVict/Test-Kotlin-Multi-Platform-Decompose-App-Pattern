@@ -28,6 +28,26 @@
 		A10000000000000000000012 /* FeatureCListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000012 /* FeatureCListViewModel.swift */; };
 		A10000000000000000000013 /* FeatureCDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000013 /* FeatureCDetailsViewModel.swift */; };
 		A10000000000000000000014 /* FeatureCConfirmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000014 /* FeatureCConfirmViewModel.swift */; };
+		A20000000000000000000001 /* AuthUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20000000000000000000001 /* AuthUI.framework */; };
+		A20000000000000000000002 /* FeatureAUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20000000000000000000002 /* FeatureAUI.framework */; };
+		A20000000000000000000003 /* FeatureBUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20000000000000000000003 /* FeatureBUI.framework */; };
+		A20000000000000000000004 /* FeatureCUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20000000000000000000004 /* FeatureCUI.framework */; };
+		A20000000000000000000011 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000004 /* AuthView.swift */; };
+		A20000000000000000000012 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000D /* AuthViewModel.swift */; };
+		A20000000000000000000013 /* FeatureAListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000006 /* FeatureAListView.swift */; };
+		A20000000000000000000014 /* FeatureAListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000E /* FeatureAListViewModel.swift */; };
+		A20000000000000000000015 /* FeatureADetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000007 /* FeatureADetailsView.swift */; };
+		A20000000000000000000016 /* FeatureADetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000F /* FeatureADetailsViewModel.swift */; };
+		A20000000000000000000017 /* FeatureBListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000008 /* FeatureBListView.swift */; };
+		A20000000000000000000018 /* FeatureBListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000010 /* FeatureBListViewModel.swift */; };
+		A20000000000000000000019 /* FeatureBDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000009 /* FeatureBDetailsView.swift */; };
+		A2000000000000000000001A /* FeatureBDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000011 /* FeatureBDetailsViewModel.swift */; };
+		A2000000000000000000001B /* FeatureCListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000A /* FeatureCListView.swift */; };
+		A2000000000000000000001C /* FeatureCListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000012 /* FeatureCListViewModel.swift */; };
+		A2000000000000000000001D /* FeatureCDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000B /* FeatureCDetailsView.swift */; };
+		A2000000000000000000001E /* FeatureCDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000013 /* FeatureCDetailsViewModel.swift */; };
+		A2000000000000000000001F /* FeatureCConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000C /* FeatureCConfirmView.swift */; };
+		A20000000000000000000020 /* FeatureCConfirmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000014 /* FeatureCConfirmViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,10 +73,77 @@
 		B10000000000000000000012 /* FeatureCListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCListViewModel.swift; sourceTree = "<group>"; };
 		B10000000000000000000013 /* FeatureCDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCDetailsViewModel.swift; sourceTree = "<group>"; };
 		B10000000000000000000014 /* FeatureCConfirmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCConfirmViewModel.swift; sourceTree = "<group>"; };
+		C20000000000000000000001 /* AuthUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AuthUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C20000000000000000000002 /* FeatureAUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeatureAUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C20000000000000000000003 /* FeatureBUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeatureBUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C20000000000000000000004 /* FeatureCUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeatureCUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXContainerItemProxy section */
+		J20000000000000000000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = G10000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F20000000000000000000001;
+			remoteInfo = AuthUI;
+		};
+		J20000000000000000000002 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = G10000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F20000000000000000000002;
+			remoteInfo = FeatureAUI;
+		};
+		J20000000000000000000003 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = G10000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F20000000000000000000003;
+			remoteInfo = FeatureBUI;
+		};
+		J20000000000000000000004 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = G10000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F20000000000000000000004;
+			remoteInfo = FeatureCUI;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		D10000000000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A20000000000000000000001 /* AuthUI.framework in Frameworks */,
+				A20000000000000000000002 /* FeatureAUI.framework in Frameworks */,
+				A20000000000000000000003 /* FeatureBUI.framework in Frameworks */,
+				A20000000000000000000004 /* FeatureCUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D20000000000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D20000000000000000000002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D20000000000000000000003 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D20000000000000000000004 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -67,6 +154,78 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 		F10000000000000000000005 /* Build shared framework */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build shared framework";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"$SRCROOT/..\"\n./gradlew :shared:embedAndSignAppleFrameworkForXcode";
+		};
+		F20000000000000000000041 /* Build shared framework */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build shared framework";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"$SRCROOT/..\"\n./gradlew :shared:embedAndSignAppleFrameworkForXcode";
+		};
+		F20000000000000000000042 /* Build shared framework */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build shared framework";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"$SRCROOT/..\"\n./gradlew :shared:embedAndSignAppleFrameworkForXcode";
+		};
+		F20000000000000000000043 /* Build shared framework */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build shared framework";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"$SRCROOT/..\"\n./gradlew :shared:embedAndSignAppleFrameworkForXcode";
+		};
+		F20000000000000000000044 /* Build shared framework */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -231,6 +390,10 @@
 			isa = PBXGroup;
 			children = (
 				C10000000000000000000001 /* TestKMPDecomposeApp.app */,
+				C20000000000000000000001 /* AuthUI.framework */,
+				C20000000000000000000002 /* FeatureAUI.framework */,
+				C20000000000000000000003 /* FeatureBUI.framework */,
+				C20000000000000000000004 /* FeatureCUI.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -250,13 +413,112 @@
 			buildRules = (
 			);
 			dependencies = (
+				K20000000000000000000001 /* PBXTargetDependency */,
+				K20000000000000000000002 /* PBXTargetDependency */,
+				K20000000000000000000003 /* PBXTargetDependency */,
+				K20000000000000000000004 /* PBXTargetDependency */,
 			);
 			name = TestKMPDecomposeApp;
 			productName = TestKMPDecomposeApp;
 			productReference = C10000000000000000000001 /* TestKMPDecomposeApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F20000000000000000000001 /* AuthUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F20000000000000000000031 /* Build configuration list for PBXNativeTarget "AuthUI" */;
+			buildPhases = (
+				F20000000000000000000041 /* Build shared framework */,
+				F20000000000000000000011 /* Sources */,
+				D20000000000000000000001 /* Frameworks */,
+				F20000000000000000000021 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AuthUI;
+			productName = AuthUI;
+			productReference = C20000000000000000000001 /* AuthUI.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F20000000000000000000002 /* FeatureAUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F20000000000000000000032 /* Build configuration list for PBXNativeTarget "FeatureAUI" */;
+			buildPhases = (
+				F20000000000000000000042 /* Build shared framework */,
+				F20000000000000000000012 /* Sources */,
+				D20000000000000000000002 /* Frameworks */,
+				F20000000000000000000022 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FeatureAUI;
+			productName = FeatureAUI;
+			productReference = C20000000000000000000002 /* FeatureAUI.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F20000000000000000000003 /* FeatureBUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F20000000000000000000033 /* Build configuration list for PBXNativeTarget "FeatureBUI" */;
+			buildPhases = (
+				F20000000000000000000043 /* Build shared framework */,
+				F20000000000000000000013 /* Sources */,
+				D20000000000000000000003 /* Frameworks */,
+				F20000000000000000000023 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FeatureBUI;
+			productName = FeatureBUI;
+			productReference = C20000000000000000000003 /* FeatureBUI.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F20000000000000000000004 /* FeatureCUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F20000000000000000000034 /* Build configuration list for PBXNativeTarget "FeatureCUI" */;
+			buildPhases = (
+				F20000000000000000000044 /* Build shared framework */,
+				F20000000000000000000014 /* Sources */,
+				D20000000000000000000004 /* Frameworks */,
+				F20000000000000000000024 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FeatureCUI;
+			productName = FeatureCUI;
+			productReference = C20000000000000000000004 /* FeatureCUI.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
+
+/* Begin PBXTargetDependency section */
+		K20000000000000000000001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F20000000000000000000001 /* AuthUI */;
+			targetProxy = J20000000000000000000001 /* PBXContainerItemProxy */;
+		};
+		K20000000000000000000002 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F20000000000000000000002 /* FeatureAUI */;
+			targetProxy = J20000000000000000000002 /* PBXContainerItemProxy */;
+		};
+		K20000000000000000000003 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F20000000000000000000003 /* FeatureBUI */;
+			targetProxy = J20000000000000000000003 /* PBXContainerItemProxy */;
+		};
+		K20000000000000000000004 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F20000000000000000000004 /* FeatureCUI */;
+			targetProxy = J20000000000000000000004 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXProject section */
 		G10000000000000000000001 /* Project object */ = {
@@ -285,12 +547,44 @@
 			projectRoot = "";
 			targets = (
 				F10000000000000000000001 /* TestKMPDecomposeApp */,
+				F20000000000000000000001 /* AuthUI */,
+				F20000000000000000000002 /* FeatureAUI */,
+				F20000000000000000000003 /* FeatureBUI */,
+				F20000000000000000000004 /* FeatureCUI */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		F10000000000000000000003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F20000000000000000000021 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F20000000000000000000022 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F20000000000000000000023 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F20000000000000000000024 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -308,23 +602,51 @@
 				A10000000000000000000015 /* NotificationAppDelegate.swift in Sources */,
 				A10000000000000000000002 /* RootView.swift in Sources */,
 				A10000000000000000000003 /* SplashView.swift in Sources */,
-				A10000000000000000000004 /* AuthView.swift in Sources */,
-				A1000000000000000000000D /* AuthViewModel.swift in Sources */,
 				A10000000000000000000005 /* MainTabView.swift in Sources */,
-				A10000000000000000000006 /* FeatureAListView.swift in Sources */,
-				A1000000000000000000000E /* FeatureAListViewModel.swift in Sources */,
-				A10000000000000000000007 /* FeatureADetailsView.swift in Sources */,
-				A1000000000000000000000F /* FeatureADetailsViewModel.swift in Sources */,
-				A10000000000000000000008 /* FeatureBListView.swift in Sources */,
-				A10000000000000000000010 /* FeatureBListViewModel.swift in Sources */,
-				A10000000000000000000009 /* FeatureBDetailsView.swift in Sources */,
-				A10000000000000000000011 /* FeatureBDetailsViewModel.swift in Sources */,
-				A1000000000000000000000A /* FeatureCListView.swift in Sources */,
-				A10000000000000000000012 /* FeatureCListViewModel.swift in Sources */,
-				A1000000000000000000000B /* FeatureCDetailsView.swift in Sources */,
-				A10000000000000000000013 /* FeatureCDetailsViewModel.swift in Sources */,
-				A1000000000000000000000C /* FeatureCConfirmView.swift in Sources */,
-				A10000000000000000000014 /* FeatureCConfirmViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F20000000000000000000011 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A20000000000000000000011 /* AuthView.swift in Sources */,
+				A20000000000000000000012 /* AuthViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F20000000000000000000012 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A20000000000000000000013 /* FeatureAListView.swift in Sources */,
+				A20000000000000000000014 /* FeatureAListViewModel.swift in Sources */,
+				A20000000000000000000015 /* FeatureADetailsView.swift in Sources */,
+				A20000000000000000000016 /* FeatureADetailsViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F20000000000000000000013 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A20000000000000000000017 /* FeatureBListView.swift in Sources */,
+				A20000000000000000000018 /* FeatureBListViewModel.swift in Sources */,
+				A20000000000000000000019 /* FeatureBDetailsView.swift in Sources */,
+				A2000000000000000000001A /* FeatureBDetailsViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F20000000000000000000014 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2000000000000000000001B /* FeatureCListView.swift in Sources */,
+				A2000000000000000000001C /* FeatureCListViewModel.swift in Sources */,
+				A2000000000000000000001D /* FeatureCDetailsView.swift in Sources */,
+				A2000000000000000000001E /* FeatureCDetailsViewModel.swift in Sources */,
+				A2000000000000000000001F /* FeatureCConfirmView.swift in Sources */,
+				A20000000000000000000020 /* FeatureCConfirmViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +842,222 @@
 			};
 			name = Release;
 		};
+		H20000000000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					shared,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		H20000000000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					shared,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		H20000000000000000000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					shared,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		H20000000000000000000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					shared,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		H20000000000000000000005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					shared,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		H20000000000000000000006 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					shared,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		H20000000000000000000007 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					shared,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		H20000000000000000000008 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					shared,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -537,6 +1075,42 @@
 			buildConfigurations = (
 				H10000000000000000000003 /* Debug */,
 				H10000000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F20000000000000000000031 /* Build configuration list for PBXNativeTarget "AuthUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				H20000000000000000000001 /* Debug */,
+				H20000000000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F20000000000000000000032 /* Build configuration list for PBXNativeTarget "FeatureAUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				H20000000000000000000003 /* Debug */,
+				H20000000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F20000000000000000000033 /* Build configuration list for PBXNativeTarget "FeatureBUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				H20000000000000000000005 /* Debug */,
+				H20000000000000000000006 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F20000000000000000000034 /* Build configuration list for PBXNativeTarget "FeatureCUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				H20000000000000000000007 /* Debug */,
+				H20000000000000000000008 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
