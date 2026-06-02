@@ -36,37 +36,27 @@ struct MainTabView: View {
 
     @ViewBuilder
     private var featureAContent: some View {
-        if let viewModel = store.featureAListViewModel() {
-            FeatureAListView(viewModel: viewModel)
-        } else if let viewModel = store.featureADetailsViewModel() {
-            FeatureADetailsView(viewModel: viewModel)
-        } else {
-            Text("Feature A state unavailable")
-        }
+        FeatureAContainerView(
+            listViewModelProvider: store.featureAListViewModel,
+            detailsViewModelProvider: store.featureADetailsViewModel
+        )
     }
 
     @ViewBuilder
     private var featureBContent: some View {
-        if let viewModel = store.featureBListViewModel() {
-            FeatureBListView(viewModel: viewModel)
-        } else if let viewModel = store.featureBDetailsViewModel() {
-            FeatureBDetailsView(viewModel: viewModel)
-        } else {
-            Text("Feature B state unavailable")
-        }
+        FeatureBContainerView(
+            listViewModelProvider: store.featureBListViewModel,
+            detailsViewModelProvider: store.featureBDetailsViewModel
+        )
     }
 
     @ViewBuilder
     private var featureCContent: some View {
-        if let viewModel = store.featureCListViewModel() {
-            FeatureCListView(viewModel: viewModel)
-        } else if let viewModel = store.featureCDetailsViewModel() {
-            FeatureCDetailsView(viewModel: viewModel)
-        } else if let viewModel = store.featureCConfirmViewModel() {
-            FeatureCConfirmView(viewModel: viewModel)
-        } else {
-            Text("Feature C state unavailable")
-        }
+        FeatureCContainerView(
+            listViewModelProvider: store.featureCListViewModel,
+            detailsViewModelProvider: store.featureCDetailsViewModel,
+            confirmViewModelProvider: store.featureCConfirmViewModel
+        )
     }
 
     private func tabButton(title: String, tab: String) -> some View {
