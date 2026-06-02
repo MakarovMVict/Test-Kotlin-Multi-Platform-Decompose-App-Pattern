@@ -18,6 +18,10 @@ dependencyResolutionManagement {
 rootProject.name = "TestKMPDecomposeApp"
 
 include(":app-android")
+include(":app-android:features:authFeature")
+include(":app-android:features:featureA")
+include(":app-android:features:featureB")
+include(":app-android:features:featureC")
 include(":shared")
 
 include(":core:common")

@@ -1,9 +1,6 @@
 package com.example.testkmpdecomposeapp.feature.a.impl
 
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import com.arkivanov.decompose.ComponentContext
-import com.arkivanov.decompose.extensions.compose.jetbrains.stack.Children
 import com.arkivanov.decompose.router.stack.ChildStack
 import com.arkivanov.decompose.router.stack.StackNavigation
 import com.arkivanov.decompose.router.stack.childStack
@@ -13,8 +10,6 @@ import com.arkivanov.decompose.value.Value
 import com.example.testkmpdecomposeapp.feature.a.api.FeatureAApi
 import com.example.testkmpdecomposeapp.feature.a.api.FeatureAComponent
 import kotlinx.serialization.Serializable
-import org.koin.core.context.GlobalContext
-import org.koin.core.parameter.parametersOf
 
 class FeatureAImpl : FeatureAApi {
     override fun create(
@@ -25,33 +20,6 @@ class FeatureAImpl : FeatureAApi {
         onOutput = onOutput
     )
 
-    @Composable
-    override fun Screen(component: FeatureAComponent) {
-        Children(stack = component.stack) {
-            when (val child = it.instance) {
-                FeatureAComponent.Child.List -> {
-                    val viewModel = remember(child) {
-                        GlobalContext.get().get<FeatureAListViewModel> {
-                            parametersOf(component::onOpenDetails)
-                        }
-                    }
-                    FeatureAListScreen(viewModel = viewModel)
-                }
-                is FeatureAComponent.Child.Details -> {
-                    val viewModel = remember(child) {
-                        GlobalContext.get().get<FeatureADetailsViewModel> {
-                            parametersOf(
-                                child.itemId,
-                                component::onBack,
-                                component::onOpenFeatureCConfirm
-                            )
-                        }
-                    }
-                    FeatureADetailsScreen(viewModel = viewModel)
-                }
-            }
-        }
-    }
 }
 
 private class DefaultFeatureAComponent(

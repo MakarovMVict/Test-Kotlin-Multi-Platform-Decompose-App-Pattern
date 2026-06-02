@@ -1,15 +1,11 @@
 package com.example.testkmpdecomposeapp.feature.c.api
 
-import androidx.compose.runtime.Composable
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.decompose.router.stack.ChildStack
 import com.arkivanov.decompose.value.Value
 
 interface FeatureCApi {
     fun create(componentContext: ComponentContext): FeatureCComponent
-
-    @Composable
-    fun Screen(component: FeatureCComponent)
 }
 
 interface FeatureCComponent {

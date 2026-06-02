@@ -17,27 +17,33 @@ kotlin {
         target.binaries.framework {
             baseName = "shared"
             isStatic = true
+            export(project(":core:common"))
+            export(project(":feature:auth:api"))
+            export(project(":feature:auth:impl"))
+            export(project(":feature:a:api"))
+            export(project(":feature:a:impl"))
+            export(project(":feature:b:api"))
+            export(project(":feature:b:impl"))
+            export(project(":feature:c:api"))
+            export(project(":feature:c:impl"))
         }
     }
 
     sourceSets {
         commonMain.dependencies {
-            implementation(project(":core:common"))
+            api(project(":core:common"))
             implementation(project(":core:ui"))
-            implementation(project(":feature:auth:api"))
-            implementation(project(":feature:auth:impl"))
-            implementation(project(":feature:a:api"))
-            implementation(project(":feature:a:impl"))
-            implementation(project(":feature:b:api"))
-            implementation(project(":feature:b:impl"))
-            implementation(project(":feature:c:api"))
-            implementation(project(":feature:c:impl"))
             implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material3)
+            api(project(":feature:auth:api"))
+            api(project(":feature:auth:impl"))
+            api(project(":feature:a:api"))
+            api(project(":feature:a:impl"))
+            api(project(":feature:b:api"))
+            api(project(":feature:b:impl"))
+            api(project(":feature:c:api"))
+            api(project(":feature:c:impl"))
             implementation(libs.koin.core)
             implementation(libs.decompose)
-            implementation(libs.decompose.compose)
             implementation(libs.kotlinx.serialization.core)
         }
     }

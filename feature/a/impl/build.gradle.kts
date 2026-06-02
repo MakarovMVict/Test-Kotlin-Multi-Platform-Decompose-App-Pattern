@@ -8,10 +8,7 @@ kotlin {
         commonMain.dependencies {
             implementation(project(":feature:a:api"))
             implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material3)
             implementation(libs.decompose)
-            implementation(libs.decompose.compose)
             implementation(libs.koin.core)
         }
     }
